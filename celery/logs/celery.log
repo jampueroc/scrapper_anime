@@ -4737,3 +4737,504 @@ OperationalError: database is locked
 [2016-09-16 20:29:45,503: INFO/MainProcess] Task visualizacion.scrapper.create_anime[dee9b880-1ff0-405f-b67c-8086c0d451a7] succeeded in 5.640828337s: None
 [2016-09-16 20:29:45,505: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[763a0347-603c-4588-a45a-708440e4ac7b]
 [2016-09-16 20:29:47,145: INFO/MainProcess] Task visualizacion.scrapper.create_anime[235ecfd6-e3df-426f-8c3c-30394eae85cc] succeeded in 10.922480337s: None
+[2016-09-16 20:29:47,148: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[a86ee411-199c-412c-8474-f2d977625ddc]
+[2016-09-16 20:29:47,163: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[8888b170-65e5-450a-86ce-30ab294a033f]
+[2016-09-16 20:29:47,805: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/22789/Barakamon
+[2016-09-16 20:29:49,079: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/2823/Barbapapa
+[2016-09-16 20:29:50,059: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/19959/Barbapapa_1977
+[2016-09-16 20:29:50,069: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/25045/Barakamon__Mijikamon
+[2016-09-16 20:29:50,722: ERROR/MainProcess] Task visualizacion.scrapper.create_anime[e4250c99-c2d4-4ce9-badc-d0aca0a32425] raised unexpected: OperationalError('database is locked',)
+Traceback (most recent call last):
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/media/jampuero/Data/universidad/visualizacion/visualizacion/scrapper.py", line 94, in create_anime
+    set_atributes(anime,data_anime,edit_basic_info=True)
+  File "/media/jampuero/Data/universidad/visualizacion/visualizacion/scrapper.py", line 194, in set_atributes
+    anime.genres.add(*list_g)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/fields/related_descriptors.py", line 843, in add
+    self._add_items(self.source_field_name, self.target_field_name, *objs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/fields/related_descriptors.py", line 1004, in _add_items
+    for obj_id in new_ids
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 450, in bulk_create
+    self._batched_insert(objs_without_pk, fields, batch_size)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 1056, in _batched_insert
+    using=self.db)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/manager.py", line 122, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 1039, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1060, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/utils.py", line 95, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/sqlite3/base.py", line 323, in execute
+    return Database.Cursor.execute(self, query, params)
+OperationalError: database is locked
+[2016-09-16 20:29:50,738: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[9861abe8-b1be-4bc8-9f30-8f6f80ce2bc3]
+[2016-09-16 20:29:51,537: ERROR/MainProcess] Task visualizacion.scrapper.create_anime[05ad5162-f7af-4cdf-9544-55af0119f671] raised unexpected: OperationalError('database is locked',)
+Traceback (most recent call last):
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/media/jampuero/Data/universidad/visualizacion/visualizacion/scrapper.py", line 94, in create_anime
+    set_atributes(anime,data_anime,edit_basic_info=True)
+  File "/media/jampuero/Data/universidad/visualizacion/visualizacion/scrapper.py", line 194, in set_atributes
+    anime.genres.add(*list_g)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/fields/related_descriptors.py", line 843, in add
+    self._add_items(self.source_field_name, self.target_field_name, *objs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/fields/related_descriptors.py", line 1004, in _add_items
+    for obj_id in new_ids
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 450, in bulk_create
+    self._batched_insert(objs_without_pk, fields, batch_size)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 1056, in _batched_insert
+    using=self.db)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/manager.py", line 122, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 1039, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1060, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/utils.py", line 95, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/sqlite3/base.py", line 323, in execute
+    return Database.Cursor.execute(self, query, params)
+OperationalError: database is locked
+[2016-09-16 20:29:54,264: ERROR/MainProcess] Task visualizacion.scrapper.create_anime[6a07872e-4c4d-4464-952d-cf195bb90041] raised unexpected: OperationalError('database is locked',)
+Traceback (most recent call last):
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/media/jampuero/Data/universidad/visualizacion/visualizacion/scrapper.py", line 94, in create_anime
+    set_atributes(anime,data_anime,edit_basic_info=True)
+  File "/media/jampuero/Data/universidad/visualizacion/visualizacion/scrapper.py", line 104, in set_atributes
+    anime.save()
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/base.py", line 700, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/base.py", line 728, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/base.py", line 812, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/base.py", line 851, in _do_insert
+    using=using, raw=raw)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/manager.py", line 122, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 1039, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1060, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/utils.py", line 95, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/sqlite3/base.py", line 323, in execute
+    return Database.Cursor.execute(self, query, params)
+OperationalError: database is locked
+[2016-09-16 20:29:54,414: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[424503f7-ddce-42ff-94f0-f2ac4e21416f]
+[2016-09-16 20:29:54,648: INFO/MainProcess] Task visualizacion.scrapper.create_anime[05abea06-3b89-43ad-92a5-f8803ea7275a] succeeded in 7.504876328s: None
+[2016-09-16 20:29:54,655: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[629475d7-a438-4d13-b62a-37ea4bb23aea]
+[2016-09-16 20:29:54,657: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[5baa3bdf-fa47-4e44-9a54-c3e5e11fddd7]
+[2016-09-16 20:29:54,714: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/2824/Barbapapa_Sekai_wo_Mawaru
+[2016-09-16 20:29:56,778: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/12745/Bari_Bari_Densetsu_1987
+[2016-09-16 20:29:57,341: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/24875/Barnacle_Lou
+[2016-09-16 20:29:57,747: INFO/MainProcess] Task visualizacion.scrapper.create_anime[85631265-039b-48d4-88d9-a482f75aa2ec] succeeded in 7.009464975s: None
+[2016-09-16 20:29:57,761: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[8a07ce33-afe0-4a99-a75d-4551520a0cf9]
+[2016-09-16 20:30:00,851: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/1667/Barom_One
+[2016-09-16 20:30:00,853: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/5002/Bari_Bari_Densetsu
+[2016-09-16 20:30:01,321: INFO/MainProcess] Task visualizacion.scrapper.create_anime[70a9394f-658e-4096-9814-d8ce1e5858f0] succeeded in 6.909655457s: None
+[2016-09-16 20:30:02,738: INFO/MainProcess] Task visualizacion.scrapper.create_anime[b2240493-9039-45a5-a595-89cdadcfe5ef] succeeded in 8.084488383s: None
+[2016-09-16 20:30:02,741: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[be32cb56-f901-47ac-ab00-421926869657]
+[2016-09-16 20:30:04,380: INFO/MainProcess] Task visualizacion.scrapper.create_anime[5bea2049-1cb7-4eca-9ed4-e7cdd18865ac] succeeded in 6.619986113s: None
+[2016-09-16 20:30:04,382: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[f142beee-0296-4455-9188-6ec3d60ebf7f]
+[2016-09-16 20:30:06,572: INFO/MainProcess] Task visualizacion.scrapper.create_anime[f2570783-2f91-448e-8032-d21bb7ff4848] succeeded in 11.924897121s: None
+[2016-09-16 20:30:06,575: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[7f64a8dc-d013-47a4-a37f-f4d0f10fa698]
+[2016-09-16 20:30:06,576: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[82b0d848-ba8b-42f3-8d4b-a6c0fa1515d4]
+[2016-09-16 20:30:06,665: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/30989/Bary-san_no_Imabari-ben_Kouza
+[2016-09-16 20:30:08,114: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/31662/Bary-san_x_Gospe_Rats__Tonde_Bary_Bary_Monogatari
+[2016-09-16 20:30:08,114: INFO/MainProcess] Task visualizacion.scrapper.create_anime[52f1e828-1135-48e2-9b60-3d923c9bab5a] succeeded in 5.374683235s: None
+[2016-09-16 20:30:09,630: INFO/MainProcess] Task visualizacion.scrapper.create_anime[8a822a87-3fc1-4555-b179-4fa54684afb3] succeeded in 5.249126675s: None
+[2016-09-16 20:30:09,632: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[2c6a0f54-51c0-4351-b426-5151be37727e]
+[2016-09-16 20:30:11,095: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/1589/Bartender
+[2016-09-16 20:30:11,095: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/67/Basilisk__Kouga_Ninpou_Chou
+[2016-09-16 20:30:12,915: INFO/MainProcess] Task visualizacion.scrapper.create_anime[f8fd8d08-a451-4b7b-935a-e14bd0b13315] succeeded in 6.342952395s: None
+[2016-09-16 20:30:12,918: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[5929b1fd-2fd1-40b3-8a89-1e9935e7e010]
+[2016-09-16 20:30:12,919: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[fbc6ad53-e7c2-43f0-b36a-7c5da2224f45]
+[2016-09-16 20:30:14,615: INFO/MainProcess] Task visualizacion.scrapper.create_anime[ef3218ff-521e-4d45-bd0d-ef3940877027] succeeded in 8.040443895s: None
+[2016-09-16 20:30:14,617: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[98182995-f6ae-4340-97ab-b091b53d647a]
+[2016-09-16 20:30:14,686: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/404/Bastard__Ankoku_no_Hakaishin
+[2016-09-16 20:30:16,515: INFO/MainProcess] Task visualizacion.scrapper.create_anime[ad54daf9-712f-4b1d-bf51-a00b43b5e307] succeeded in 6.883499757s: None
+[2016-09-16 20:30:17,404: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/6688/Batain_Lai_Minami_no_Shima_no_Mizu_Monogatari
+[2016-09-16 20:30:18,740: INFO/MainProcess] Task visualizacion.scrapper.create_anime[a480cab0-33ac-454e-9c0f-75ef76d29dd1] succeeded in 5.823244633s: None
+[2016-09-16 20:30:18,743: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[9a046de8-1efb-4158-a405-e9511164b823]
+[2016-09-16 20:30:18,855: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/4094/Batman__Gotham_Knight
+[2016-09-16 20:30:18,857: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/5675/Basquash
+[2016-09-16 20:30:20,874: INFO/MainProcess] Task visualizacion.scrapper.create_anime[196b0f0b-68b1-427a-b08c-c0970858e088] succeeded in 7.959227917s: None
+[2016-09-16 20:30:20,877: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[b8ebc7c9-ea0d-41ea-92b4-d3c4181d545e]
+[2016-09-16 20:30:20,878: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[117a7c2f-db88-43cd-8171-8f9c9614efc8]
+[2016-09-16 20:30:24,941: INFO/MainProcess] Task visualizacion.scrapper.create_anime[686bc27c-d806-462b-b9ac-e4729f29f3d9] succeeded in 10.325201842s: None
+[2016-09-16 20:30:24,944: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[a89214a1-c62c-4f29-a747-290104bb19f1]
+[2016-09-16 20:30:24,944: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/16514/Batsu___Terry
+[2016-09-16 20:30:25,962: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/32947/Battery
+[2016-09-16 20:30:27,583: INFO/MainProcess] Task visualizacion.scrapper.create_anime[8888b170-65e5-450a-86ce-30ab294a033f] succeeded in 6.707447276s: None
+[2016-09-16 20:30:28,007: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/6189/Baton
+[2016-09-16 20:30:28,217: INFO/MainProcess] Task visualizacion.scrapper.create_anime[a86ee411-199c-412c-8474-f2d977625ddc] succeeded in 9.475123597s: None
+[2016-09-16 20:30:28,219: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[62a6af56-8cc5-4ecd-be5d-5fdc9c13021a]
+[2016-09-16 20:30:29,952: INFO/MainProcess] Task visualizacion.scrapper.create_anime[763a0347-603c-4588-a45a-708440e4ac7b] succeeded in 9.078613003s: None
+[2016-09-16 20:30:29,956: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[ca972392-06ba-4bcb-a28c-6504b3507498]
+[2016-09-16 20:30:29,958: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[4921f603-fdbe-4d6c-855b-c04292381a41]
+[2016-09-16 20:30:30,021: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/1185/Battle_Athletess_Daiundoukai
+[2016-09-16 20:30:31,767: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/13041/Battle_Break
+[2016-09-16 20:30:31,975: INFO/MainProcess] Task visualizacion.scrapper.create_anime[9861abe8-b1be-4bc8-9f30-8f6f80ce2bc3] succeeded in 7.032906169s: None
+[2016-09-16 20:30:31,977: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[c2db6410-db6f-41e4-af62-bac74fc13c90]
+[2016-09-16 20:30:33,075: INFO/MainProcess] Task visualizacion.scrapper.create_anime[629475d7-a438-4d13-b62a-37ea4bb23aea] succeeded in 4.85714504s: None
+[2016-09-16 20:30:33,183: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/6025/Battle_Can
+[2016-09-16 20:30:33,663: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/1186/Battle_Athletess_Daiundoukai_TV
+[2016-09-16 20:30:36,420: INFO/MainProcess] Task visualizacion.scrapper.create_anime[424503f7-ddce-42ff-94f0-f2ac4e21416f] succeeded in 6.467483541s: None
+[2016-09-16 20:30:36,429: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[5aab1e03-4593-4c5d-8e4c-8b1e3ebcd723]
+[2016-09-16 20:30:36,430: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/579/Battle_Programmer_Shirase
+[2016-09-16 20:30:36,432: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[f1ee43df-fc23-4232-bb40-4eab81ae49dc]
+[2016-09-16 20:30:36,868: INFO/MainProcess] Task visualizacion.scrapper.create_anime[5baa3bdf-fa47-4e44-9a54-c3e5e11fddd7] succeeded in 6.913175424s: None
+[2016-09-16 20:30:36,872: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[534bf8d1-e085-4679-b3e4-afc6ad37da31]
+[2016-09-16 20:30:38,601: INFO/MainProcess] Task visualizacion.scrapper.create_anime[8a07ce33-afe0-4a99-a75d-4551520a0cf9] succeeded in 6.624731605s: None
+[2016-09-16 20:30:38,605: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[ebed2157-e009-4103-a8c7-4a4a8918d973]
+[2016-09-16 20:30:39,262: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/32089/Battle_Spirits_Shinnen_Special
+[2016-09-16 20:30:40,560: INFO/MainProcess] Task visualizacion.scrapper.create_anime[f142beee-0296-4455-9188-6ec3d60ebf7f] succeeded in 4.135496945s: None
+[2016-09-16 20:30:40,587: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/9346/Battle_Spirits__Brave
+[2016-09-16 20:30:42,168: INFO/MainProcess] Task visualizacion.scrapper.create_anime[7f64a8dc-d013-47a4-a37f-f4d0f10fa698] succeeded in 5.299291491s: None
+[2016-09-16 20:30:42,170: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[fd1637e5-88ad-4aaf-888a-9af02d3d7687]
+[2016-09-16 20:30:42,179: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/27737/Battle_Spirits__Burning_Soul
+[2016-09-16 20:30:43,477: INFO/MainProcess] Task visualizacion.scrapper.create_anime[82b0d848-ba8b-42f3-8d4b-a6c0fa1515d4] succeeded in 4.874054037s: None
+[2016-09-16 20:30:43,480: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[b0fab917-ed10-4071-87bf-d86241b93fc4]
+[2016-09-16 20:30:43,519: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/3625/Battle_Royal_High_School
+[2016-09-16 20:30:45,485: INFO/MainProcess] Task visualizacion.scrapper.create_anime[be32cb56-f901-47ac-ab00-421926869657] succeeded in 9.066113495s: None
+[2016-09-16 20:30:45,488: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[e814787b-4451-495b-88ad-4c83dd81d1df]
+[2016-09-16 20:30:45,489: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[0d9f82c5-d40c-4818-a9a2-21915cd1e6c1]
+[2016-09-16 20:30:46,492: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/11017/Battle_Spirits__Heroes
+[2016-09-16 20:30:47,943: INFO/MainProcess] Task visualizacion.scrapper.create_anime[5929b1fd-2fd1-40b3-8a89-1e9935e7e010] succeeded in 5.773717537s: None
+[2016-09-16 20:30:49,052: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/6901/Battle_Spirits__Shounen_Gekiha_Dan
+[2016-09-16 20:30:50,027: INFO/MainProcess] Task visualizacion.scrapper.create_anime[98182995-f6ae-4340-97ab-b091b53d647a] succeeded in 4.540268438s: None
+[2016-09-16 20:30:50,031: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[cff5abdf-afb2-48f9-91fe-d5e3c72d4dfb]
+[2016-09-16 20:30:50,193: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/32670/Battle_Spirits__Double_Drive
+[2016-09-16 20:30:50,444: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/1009/Battle_Spirits__Ryuuko_no_Ken
+[2016-09-16 20:30:51,128: INFO/MainProcess] Task visualizacion.scrapper.create_anime[2c6a0f54-51c0-4351-b426-5151be37727e] succeeded in 5.643082336s: None
+[2016-09-16 20:30:51,130: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[1459ea17-1cab-4cce-b6c9-5ac82617fbfa]
+[2016-09-16 20:30:52,853: INFO/MainProcess] Task visualizacion.scrapper.create_anime[fbc6ad53-e7c2-43f0-b36a-7c5da2224f45] succeeded in 9.374848182s: None
+[2016-09-16 20:30:52,855: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[e8c14df0-28e2-4731-82b3-c86b40db1ed7]
+[2016-09-16 20:30:52,857: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[1f4445ab-84d2-40f2-940b-b9ecfd42ac26]
+[2016-09-16 20:30:53,070: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/14913/Battle_Spirits__Sword_Eyes
+[2016-09-16 20:30:54,378: INFO/MainProcess] Task visualizacion.scrapper.create_anime[b8ebc7c9-ea0d-41ea-92b4-d3c4181d545e] succeeded in 4.349412352s: None
+[2016-09-16 20:30:54,400: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/5082/Battle_Spirits__Shounen_Toppa_Bashin
+[2016-09-16 20:30:56,311: INFO/MainProcess] Task visualizacion.scrapper.create_anime[9a046de8-1efb-4158-a405-e9511164b823] succeeded in 5.183877988s: None
+[2016-09-16 20:30:56,315: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[f2ce819f-090d-4ac6-b93b-3fe973a2761a]
+[2016-09-16 20:30:56,317: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[b2776b11-4a48-48a9-825b-e684cae3f032]
+[2016-09-16 20:30:56,950: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/19877/Battle_Spirits__Sword_Eyes_Gekitouden
+[2016-09-16 20:30:57,383: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/4458/Bavel_no_Hon
+[2016-09-16 20:30:58,153: INFO/MainProcess] Task visualizacion.scrapper.create_anime[117a7c2f-db88-43cd-8171-8f9c9614efc8] succeeded in 5.300558497s: None
+[2016-09-16 20:30:58,155: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[4c2fc794-6d5d-4836-aa7d-fd8d8d625fad]
+[2016-09-16 20:30:59,845: INFO/MainProcess] Task visualizacion.scrapper.create_anime[a89214a1-c62c-4f29-a747-290104bb19f1] succeeded in 6.99082133s: None
+[2016-09-16 20:30:59,848: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[7c3ec211-7a39-4a26-a86c-245e3c9b72c2]
+[2016-09-16 20:30:59,875: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/10105/Bavi_Stock
+[2016-09-16 20:31:02,312: INFO/MainProcess] Task visualizacion.scrapper.create_anime[62a6af56-8cc5-4ecd-be5d-5fdc9c13021a] succeeded in 6.000728499s: None
+[2016-09-16 20:31:02,314: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[2bb8561a-82a4-4569-a6cd-a2e7d59f82a1]
+[2016-09-16 20:31:02,347: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/28433/Baymax
+[2016-09-16 20:31:04,479: INFO/MainProcess] Task visualizacion.scrapper.create_anime[ca972392-06ba-4bcb-a28c-6504b3507498] succeeded in 8.165025658s: None
+[2016-09-16 20:31:04,481: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[bdecd966-c199-4348-a7ba-fe740aa5ed1d]
+[2016-09-16 20:31:04,555: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/20543/Bayonetta__Bloody_Fate
+[2016-09-16 20:31:04,555: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/29359/Bazar_d_Gozarre
+[2016-09-16 20:31:05,851: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/22205/Be_Blues_Ao_ni_Nare
+[2016-09-16 20:31:06,213: INFO/MainProcess] Task visualizacion.scrapper.create_anime[c2db6410-db6f-41e4-af62-bac74fc13c90] succeeded in 6.366489421s: None
+[2016-09-16 20:31:08,488: INFO/MainProcess] Task visualizacion.scrapper.create_anime[4921f603-fdbe-4d6c-855b-c04292381a41] succeeded in 10.333267855s: None
+[2016-09-16 20:31:08,490: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[dbe4711d-8c45-46f6-b4c1-aa8bf82b936b]
+[2016-09-16 20:31:08,492: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[3cfeb2bd-df48-438e-bb32-0d95f4eb4134]
+[2016-09-16 20:31:09,146: INFO/MainProcess] Task visualizacion.scrapper.create_anime[5aab1e03-4593-4c5d-8e4c-8b1e3ebcd723] succeeded in 6.833241684s: None
+[2016-09-16 20:31:09,149: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[eb72a70f-e848-4f15-a10a-d34909472c62]
+[2016-09-16 20:31:09,201: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/9645/Be-Bop_Highschool
+[2016-09-16 20:31:10,589: INFO/MainProcess] Task visualizacion.scrapper.create_anime[f1ee43df-fc23-4232-bb40-4eab81ae49dc] succeeded in 6.108477288s: None
+[2016-09-16 20:31:10,591: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[11bcce5d-e3dc-45d6-a988-63002822b617]
+[2016-09-16 20:31:11,259: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/24087/Be-Bop_Kaizokuban
+[2016-09-16 20:31:12,864: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/4820/Be-yond
+[2016-09-16 20:31:13,038: INFO/MainProcess] Task visualizacion.scrapper.create_anime[534bf8d1-e085-4679-b3e4-afc6ad37da31] succeeded in 4.550817307s: None
+[2016-09-16 20:31:13,041: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[bccd3770-6ad0-4cf7-8490-4a414af6a645]
+[2016-09-16 20:31:14,397: INFO/MainProcess] Task visualizacion.scrapper.create_anime[fd1637e5-88ad-4aaf-888a-9af02d3d7687] succeeded in 5.248899586s: None
+[2016-09-16 20:31:14,452: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/2220/Be-Boy_Kidnappn_Idol
+[2016-09-16 20:31:14,452: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/29351/Beanuts
+[2016-09-16 20:31:15,897: INFO/MainProcess] Task visualizacion.scrapper.create_anime[b0fab917-ed10-4071-87bf-d86241b93fc4] succeeded in 5.307528487s: None
+[2016-09-16 20:31:15,901: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[ff8867dd-2a09-40d8-ad3b-33f78fa8f5d2]
+[2016-09-16 20:31:17,556: INFO/MainProcess] Task visualizacion.scrapper.create_anime[ebed2157-e009-4103-a8c7-4a4a8918d973] succeeded in 9.066313391s: None
+[2016-09-16 20:31:17,559: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[c2d0283c-71ac-4b67-8e3b-921024ff8a64]
+[2016-09-16 20:31:17,560: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[df725dc1-9981-4938-aa6e-67cfd95fbf93]
+[2016-09-16 20:31:17,642: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/15795/Beast_Saga
+[2016-09-16 20:31:18,822: INFO/MainProcess] Task visualizacion.scrapper.create_anime[e814787b-4451-495b-88ad-4c83dd81d1df] succeeded in 5.782968551s: None
+[2016-09-16 20:31:18,825: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[d2ade8dc-c526-4bd1-b19e-dab74bbcd1f0]
+[2016-09-16 20:31:21,967: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/6511/Beast_Wars_Neo
+[2016-09-16 20:31:23,506: INFO/MainProcess] Task visualizacion.scrapper.create_anime[0d9f82c5-d40c-4818-a9a2-21915cd1e6c1] succeeded in 5.950690054s: None
+[2016-09-16 20:31:23,508: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[f4250581-1466-4703-a6fc-3b6698b566fb]
+[2016-09-16 20:31:25,618: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/5289/Beast_Wars_Second__LioConvoy_in_Imminent_Danger
+[2016-09-16 20:31:25,997: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/30078/Beautiful_Name
+[2016-09-16 20:31:26,999: INFO/MainProcess] Task visualizacion.scrapper.create_anime[1459ea17-1cab-4cce-b6c9-5ac82617fbfa] succeeded in 9.440684595s: None
+[2016-09-16 20:31:28,248: INFO/MainProcess] Task visualizacion.scrapper.create_anime[1f4445ab-84d2-40f2-940b-b9ecfd42ac26] succeeded in 4.741362119s: None
+[2016-09-16 20:31:28,251: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[b724f720-59c0-493a-9a2a-8a5219948274]
+[2016-09-16 20:31:28,254: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/7155/Beat_Shot
+[2016-09-16 20:31:29,674: INFO/MainProcess] Task visualizacion.scrapper.create_anime[e8c14df0-28e2-4731-82b3-c86b40db1ed7] succeeded in 10.850479776s: None
+[2016-09-16 20:31:29,675: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[4e5a7be8-68e7-44e0-b84c-70b3c956eb16]
+[2016-09-16 20:31:31,184: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/5070/Beast_Wars_Second_Chou_Seimeitai_Transformers
+[2016-09-16 20:31:32,273: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/57/Beck
+[2016-09-16 20:31:33,182: INFO/MainProcess] Task visualizacion.scrapper.create_anime[cff5abdf-afb2-48f9-91fe-d5e3c72d4dfb] succeeded in 17.283636318s: None
+[2016-09-16 20:31:33,186: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[fdea1ad6-b9eb-4a0c-9493-a33bed8764d1]
+[2016-09-16 20:31:33,189: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[ddefb058-4034-4f21-bdd4-a5102a0ede3e]
+[2016-09-16 20:31:34,396: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/9513/Beelzebub
+[2016-09-16 20:31:34,541: ERROR/MainProcess] Task visualizacion.scrapper.create_anime[b2776b11-4a48-48a9-825b-e684cae3f032] raised unexpected: OperationalError('database is locked',)
+Traceback (most recent call last):
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/media/jampuero/Data/universidad/visualizacion/visualizacion/scrapper.py", line 94, in create_anime
+    set_atributes(anime,data_anime,edit_basic_info=True)
+  File "/media/jampuero/Data/universidad/visualizacion/visualizacion/scrapper.py", line 194, in set_atributes
+    anime.genres.add(*list_g)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/fields/related_descriptors.py", line 843, in add
+    self._add_items(self.source_field_name, self.target_field_name, *objs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/fields/related_descriptors.py", line 1004, in _add_items
+    for obj_id in new_ids
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 450, in bulk_create
+    self._batched_insert(objs_without_pk, fields, batch_size)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 1056, in _batched_insert
+    using=self.db)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/manager.py", line 122, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 1039, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1060, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/utils.py", line 95, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/sqlite3/base.py", line 323, in execute
+    return Database.Cursor.execute(self, query, params)
+OperationalError: database is locked
+[2016-09-16 20:31:36,575: INFO/MainProcess] Task visualizacion.scrapper.create_anime[4c2fc794-6d5d-4836-aa7d-fd8d8d625fad] succeeded in 6.900406348s: None
+[2016-09-16 20:31:36,578: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[49f83256-3461-4742-a90b-76a0b8df3e1b]
+[2016-09-16 20:31:36,653: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/32311/Beautiful_World
+[2016-09-16 20:31:39,466: INFO/MainProcess] Task visualizacion.scrapper.create_anime[f2ce819f-090d-4ac6-b93b-3fe973a2761a] succeeded in 6.284248607s: None
+[2016-09-16 20:31:39,470: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[26a9a480-300b-4d3e-b51a-1ae55a3e0c51]
+[2016-09-16 20:31:39,472: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[a3078279-fb4a-4a47-beef-941fd3f161c5]
+[2016-09-16 20:31:39,475: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/29897/Beer_Mukashi_Mukashi
+[2016-09-16 20:31:40,616: INFO/MainProcess] Task visualizacion.scrapper.create_anime[bdecd966-c199-4348-a7ba-fe740aa5ed1d] succeeded in 4.039943961s: None
+[2016-09-16 20:31:40,691: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/10479/Beelzebub_Specials
+[2016-09-16 20:31:42,625: INFO/MainProcess] Task visualizacion.scrapper.create_anime[7c3ec211-7a39-4a26-a86c-245e3c9b72c2] succeeded in 9.440022562s: None
+[2016-09-16 20:31:42,628: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[3a432baf-bc66-4ff7-ad83-e3d34ab4f797]
+[2016-09-16 20:31:43,800: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/9120/Beelzebub__Hirotta_Akachan_wa_Daimaou
+[2016-09-16 20:31:45,292: INFO/MainProcess] Task visualizacion.scrapper.create_anime[2bb8561a-82a4-4569-a6cd-a2e7d59f82a1] succeeded in 5.826083947s: None
+[2016-09-16 20:31:45,298: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[28685ccf-590e-4b80-92dd-67451a08fba8]
+[2016-09-16 20:31:45,299: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[edb8199f-40bd-452b-bba8-9defb153cb47]
+[2016-09-16 20:31:45,353: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/8/Beet_the_Vandel_Buster
+[2016-09-16 20:31:46,329: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/1123/Beet_the_Vandel_Buster_Excellion
+[2016-09-16 20:31:47,784: INFO/MainProcess] Task visualizacion.scrapper.create_anime[3cfeb2bd-df48-438e-bb32-0d95f4eb4134] succeeded in 5.158980525s: None
+[2016-09-16 20:31:48,326: INFO/MainProcess] Task visualizacion.scrapper.create_anime[dbe4711d-8c45-46f6-b4c1-aa8bf82b936b] succeeded in 8.85763309s: None
+[2016-09-16 20:31:48,328: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[458533fd-1789-4ee6-810e-3efa57a2bc23]
+[2016-09-16 20:31:48,329: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[8b86c4e9-0d3f-4c68-b26b-dbb7654251c6]
+[2016-09-16 20:31:48,640: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/29291/Behind_a_Smile
+[2016-09-16 20:31:49,834: INFO/MainProcess] Task visualizacion.scrapper.create_anime[eb72a70f-e848-4f15-a10a-d34909472c62] succeeded in 4.542284151s: None
+[2016-09-16 20:31:49,837: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[f495bd10-2812-4956-87e9-9411be95553b]
+[2016-09-16 20:31:49,886: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/8921/Believe
+[2016-09-16 20:31:50,891: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/29710/Believe_in_It
+[2016-09-16 20:31:51,169: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/28951/Beluga
+[2016-09-16 20:31:51,343: INFO/MainProcess] Task visualizacion.scrapper.create_anime[11bcce5d-e3dc-45d6-a988-63002822b617] succeeded in 6.048270305s: None
+[2016-09-16 20:31:51,347: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[0bf042f9-4139-478f-8bf9-956a61846fab]
+[2016-09-16 20:31:52,401: INFO/MainProcess] Task visualizacion.scrapper.create_anime[ff8867dd-2a09-40d8-ad3b-33f78fa8f5d2] succeeded in 4.074074828s: None
+[2016-09-16 20:31:53,410: INFO/MainProcess] Task visualizacion.scrapper.create_anime[bccd3770-6ad0-4cf7-8490-4a414af6a645] succeeded in 5.084427648s: None
+[2016-09-16 20:31:53,413: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/17687/Bemubemu_Hunter_Kotengu_Tenmaru
+[2016-09-16 20:31:53,415: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[9ce6ebd3-b5bf-4abf-824b-abd81400e866]
+[2016-09-16 20:31:53,417: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[15efae60-d01f-4591-a774-66c88ba38aa5]
+[2016-09-16 20:31:54,751: INFO/MainProcess] Task visualizacion.scrapper.create_anime[c2d0283c-71ac-4b67-8e3b-921024ff8a64] succeeded in 4.915723333s: None
+[2016-09-16 20:31:54,753: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[c9262666-8f51-4a57-897c-2e79a99cf202]
+[2016-09-16 20:31:56,072: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/10396/Ben-To
+[2016-09-16 20:31:58,493: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/19547/Beompeoking_Jaepeo
+[2016-09-16 20:31:58,694: INFO/MainProcess] Task visualizacion.scrapper.create_anime[df725dc1-9981-4938-aa6e-67cfd95fbf93] succeeded in 7.348748332s: None
+[2016-09-16 20:31:58,697: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[68488037-e2fc-4de9-866e-7d3ec638e2d1]
+[2016-09-16 20:31:59,081: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/12447/Ben-To_Picture_Drama
+[2016-09-16 20:32:00,511: INFO/MainProcess] Task visualizacion.scrapper.create_anime[b724f720-59c0-493a-9a2a-8a5219948274] succeeded in 5.758253308s: None
+[2016-09-16 20:32:01,483: ERROR/MainProcess] Task visualizacion.scrapper.create_anime[f4250581-1466-4703-a6fc-3b6698b566fb] raised unexpected: OperationalError('database is locked',)
+Traceback (most recent call last):
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/media/jampuero/Data/universidad/visualizacion/visualizacion/scrapper.py", line 87, in create_anime
+    anime = Anime.objects.get(url=anime_url)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/manager.py", line 122, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 381, in get
+    num = len(clone)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 240, in __len__
+    self._fetch_all()
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 1074, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 52, in __iter__
+    results = compiler.execute_sql()
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 848, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/utils.py", line 95, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/sqlite3/base.py", line 323, in execute
+    return Database.Cursor.execute(self, query, params)
+OperationalError: database is locked
+[2016-09-16 20:32:01,525: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[26059408-b9d4-4794-937b-ffb7c6cfa666]
+[2016-09-16 20:32:03,186: INFO/MainProcess] Task visualizacion.scrapper.create_anime[d2ade8dc-c526-4bd1-b19e-dab74bbcd1f0] succeeded in 9.776306123s: None
+[2016-09-16 20:32:03,189: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[bd34c721-1e19-4eba-bfce-e5e216e4bc17]
+[2016-09-16 20:32:03,190: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[21db49bf-caea-40ef-b001-f00faebc7e63]
+[2016-09-16 20:32:03,191: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/29731/Beppu_x_Peeping_Life
+[2016-09-16 20:32:04,486: INFO/MainProcess] Task visualizacion.scrapper.create_anime[4e5a7be8-68e7-44e0-b84c-70b3c956eb16] succeeded in 5.791154471s: None
+[2016-09-16 20:32:04,488: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[b4a51a6c-8a24-4bd4-b93c-9a0e2289c74f]
+[2016-09-16 20:32:04,516: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/30984/Bero-dashi_Chonma
+[2016-09-16 20:32:05,628: INFO/MainProcess] Task visualizacion.scrapper.create_anime[ddefb058-4034-4f21-bdd4-a5102a0ede3e] succeeded in 4.104492065s: None
+[2016-09-16 20:32:07,200: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/33462/Bernard-jou_Iwaku
+[2016-09-16 20:32:08,915: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/33/Berserk
+[2016-09-16 20:32:09,771: INFO/MainProcess] Task visualizacion.scrapper.create_anime[fdea1ad6-b9eb-4a0c-9493-a33bed8764d1] succeeded in 6.584512432s: None
+[2016-09-16 20:32:09,775: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[c416ec09-f84c-46e1-a712-8ac68b108e36]
+[2016-09-16 20:32:09,778: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[fd04f977-0d27-43ca-8d2e-ff6487f21561]
+[2016-09-16 20:32:10,036: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/32379/Berserk_2016
+[2016-09-16 20:32:11,779: INFO/MainProcess] Task visualizacion.scrapper.create_anime[49f83256-3461-4742-a90b-76a0b8df3e1b] succeeded in 8.590980725s: None
+[2016-09-16 20:32:11,782: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[bf42e814-43c1-4bce-a0d2-5d5ce4316f61]
+[2016-09-16 20:32:14,802: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/10218/Berserk__Ougon_Jidai-hen_I_-_Haou_no_Tamago
+[2016-09-16 20:32:17,008: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/12115/Berserk__Ougon_Jidai-hen_III_-_Kourin
+[2016-09-16 20:32:17,346: ERROR/MainProcess] Task visualizacion.scrapper.create_anime[a3078279-fb4a-4a47-beef-941fd3f161c5] raised unexpected: OperationalError('database is locked',)
+Traceback (most recent call last):
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/media/jampuero/Data/universidad/visualizacion/visualizacion/scrapper.py", line 94, in create_anime
+    set_atributes(anime,data_anime,edit_basic_info=True)
+  File "/media/jampuero/Data/universidad/visualizacion/visualizacion/scrapper.py", line 171, in set_atributes
+    anime.producers.add(*list_p)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/fields/related_descriptors.py", line 843, in add
+    self._add_items(self.source_field_name, self.target_field_name, *objs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/fields/related_descriptors.py", line 1004, in _add_items
+    for obj_id in new_ids
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 450, in bulk_create
+    self._batched_insert(objs_without_pk, fields, batch_size)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 1056, in _batched_insert
+    using=self.db)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/manager.py", line 122, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/query.py", line 1039, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1060, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/utils.py", line 95, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/jampuero/.virtualenvs/vis/local/lib/python2.7/site-packages/django/db/backends/sqlite3/base.py", line 323, in execute
+    return Database.Cursor.execute(self, query, params)
+OperationalError: database is locked
+[2016-09-16 20:32:19,142: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/12113/Berserk__Ougon_Jidai-hen_II_-_Doldrey_Kouryaku
+[2016-09-16 20:32:19,501: INFO/MainProcess] Task visualizacion.scrapper.create_anime[28685ccf-590e-4b80-92dd-67451a08fba8] succeeded in 7.720730483s: None
+[2016-09-16 20:32:19,505: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[f4c423c0-5f9a-41e4-8ac9-4f0f993179c2]
+[2016-09-16 20:32:20,463: INFO/MainProcess] Task visualizacion.scrapper.create_anime[26a9a480-300b-4d3e-b51a-1ae55a3e0c51] succeeded in 15.975885203s: None
+[2016-09-16 20:32:20,466: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[9a2c77d7-5888-4700-9490-09dea7ea5cc8]
+[2016-09-16 20:32:22,551: INFO/MainProcess] Task visualizacion.scrapper.create_anime[3a432baf-bc66-4ff7-ad83-e3d34ab4f797] succeeded in 12.777339128s: None
+[2016-09-16 20:32:22,553: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[50991f3b-778a-4831-b768-b145a817f375]
+[2016-09-16 20:32:22,554: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[fa996436-eb8e-4642-a9cc-e1ea0f8321df]
+[2016-09-16 20:32:23,583: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/33940/Best_Care_Group
+[2016-09-16 20:32:24,730: INFO/MainProcess] Task visualizacion.scrapper.create_anime[edb8199f-40bd-452b-bba8-9defb153cb47] succeeded in 4.266076996s: None
+[2016-09-16 20:32:24,733: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[f82e55c5-02ce-4b23-b954-fdc53289f85a]
+[2016-09-16 20:32:24,735: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/10553/Betsu_ni_Anta_no_Tame_ni_Ookiku_Nattan_Janain_Dakara_ne
+[2016-09-16 20:32:26,481: INFO/MainProcess] Task visualizacion.scrapper.create_anime[458533fd-1789-4ee6-810e-3efa57a2bc23] succeeded in 6.978117944s: None
+[2016-09-16 20:32:26,482: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[c898689c-4809-4a9e-bd43-9440bfb8ebed]
+[2016-09-16 20:32:26,498: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/1136/Betterman
+[2016-09-16 20:32:27,640: INFO/MainProcess] Task visualizacion.scrapper.create_anime[8b86c4e9-0d3f-4c68-b26b-dbb7654251c6] succeeded in 5.08928143s: None
+[2016-09-16 20:32:27,642: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[af2badc9-d877-4a1f-81c6-6bee64c27950]
+[2016-09-16 20:32:27,718: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/31049/Beyblade_Burst
+[2016-09-16 20:32:29,489: INFO/MainProcess] Task visualizacion.scrapper.create_anime[f495bd10-2812-4956-87e9-9411be95553b] succeeded in 6.936638475s: None
+[2016-09-16 20:32:29,492: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[9692ffe1-292b-4e03-900e-04c1d51660d6]
+[2016-09-16 20:32:32,158: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/10421/Bi-chiku_Beach__Nangoku_Nyuujoku_Satsueikai
+[2016-09-16 20:32:33,533: INFO/MainProcess] Task visualizacion.scrapper.create_anime[0bf042f9-4139-478f-8bf9-956a61846fab] succeeded in 8.80086273s: None
+[2016-09-16 20:32:33,538: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[38d4ff9e-c495-4011-95b5-36ee0be528e8]
+[2016-09-16 20:32:33,648: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/368/Bible_Black
+[2016-09-16 20:32:36,432: INFO/MainProcess] Task visualizacion.scrapper.create_anime[15efae60-d01f-4591-a774-66c88ba38aa5] succeeded in 8.790783814s: None
+[2016-09-16 20:32:36,432: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/3980/Bi-Indoushi_Miija__Injoku_no_Gakuen
+[2016-09-16 20:32:38,815: INFO/MainProcess] Task visualizacion.scrapper.create_anime[9ce6ebd3-b5bf-4abf-824b-abd81400e866] succeeded in 12.333622766s: None
+[2016-09-16 20:32:38,818: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[c92d65a7-9f70-452b-b224-e02aa3d8566a]
+[2016-09-16 20:32:38,819: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[5e8ce70e-17cf-4a76-bd54-f503fd06c509]
+[2016-09-16 20:32:38,867: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/972/Bible_Black_Gaiden
+[2016-09-16 20:32:38,869: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/2873/Bible_Black_Only_Version
+[2016-09-16 20:32:40,515: INFO/MainProcess] Task visualizacion.scrapper.create_anime[c9262666-8f51-4a57-897c-2e79a99cf202] succeeded in 11.024748791s: None
+[2016-09-16 20:32:40,518: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[720db8c0-0e2c-4600-9d25-734ee0fd529a]
+[2016-09-16 20:32:42,251: INFO/MainProcess] Task visualizacion.scrapper.create_anime[68488037-e2fc-4de9-866e-7d3ec638e2d1] succeeded in 8.716421861s: None
+[2016-09-16 20:32:42,260: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[0ea0f449-ba24-479a-85d2-0044ecaf7e7c]
+[2016-09-16 20:32:42,920: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/5347/Bible_Black__Imari_Ryoujoku_Genba
+[2016-09-16 20:32:44,532: INFO/MainProcess] Task visualizacion.scrapper.create_anime[26059408-b9d4-4794-937b-ffb7c6cfa666] succeeded in 5.717236116s: None
+[2016-09-16 20:32:44,534: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[53b522f1-c74a-429e-b24b-00087308ae80]
+[2016-09-16 20:32:44,573: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/1401/Bible_Black__New_Testament
+[2016-09-16 20:32:46,483: INFO/MainProcess] Task visualizacion.scrapper.create_anime[bd34c721-1e19-4eba-bfce-e5e216e4bc17] succeeded in 7.665594589s: None
+[2016-09-16 20:32:46,485: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[b1d07687-e0da-4574-8f77-86efc84110a7]
+[2016-09-16 20:32:49,011: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/33550/Bic_Contact_X_Mameshiba_Collab_CM
+[2016-09-16 20:32:50,300: INFO/MainProcess] Task visualizacion.scrapper.create_anime[b4a51a6c-8a24-4bd4-b93c-9a0e2289c74f] succeeded in 8.046692378s: None
+[2016-09-16 20:32:51,846: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/9955/Big_Mouth_Do_Do
+[2016-09-16 20:32:52,717: INFO/MainProcess] Task visualizacion.scrapper.create_anime[c416ec09-f84c-46e1-a712-8ac68b108e36] succeeded in 8.183643948s: None
+[2016-09-16 20:32:52,720: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[0e0af26e-484e-4ee2-bede-637de4939ceb]
+[2016-09-16 20:32:52,832: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/30137/Big_Order
+[2016-09-16 20:32:54,308: INFO/MainProcess] Task visualizacion.scrapper.create_anime[fd04f977-0d27-43ca-8d2e-ff6487f21561] succeeded in 7.82453697s: None
+[2016-09-16 20:32:54,310: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[bb7fe497-2fdc-4261-b389-032f5921d553]
+[2016-09-16 20:32:57,781: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/13223/Bible_Black__New_Testament_Recap
+[2016-09-16 20:32:59,193: INFO/MainProcess] Task visualizacion.scrapper.create_anime[21db49bf-caea-40ef-b001-f00faebc7e63] succeeded in 18.676337294s: None
+[2016-09-16 20:32:59,197: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[7fab2d0f-7092-4cee-bf76-04f589b09ddf]
+[2016-09-16 20:32:59,201: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[15bb1015-95cd-4537-8977-26873afa0c87]
+[2016-09-16 20:32:59,629: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/9613/Big_X
+[2016-09-16 20:33:00,692: INFO/MainProcess] Task visualizacion.scrapper.create_anime[9a2c77d7-5888-4700-9490-09dea7ea5cc8] succeeded in 6.38295002s: None
+[2016-09-16 20:33:02,485: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/2622/Big_Wars__Kami_Utsu_Akaki_Kouya_ni
+[2016-09-16 20:33:04,401: INFO/MainProcess] Task visualizacion.scrapper.create_anime[f4c423c0-5f9a-41e4-8ac9-4f0f993179c2] succeeded in 11.682890958s: None
+[2016-09-16 20:33:04,404: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[47617b29-4c49-435e-aa8b-99575da4f9ee]
+[2016-09-16 20:33:04,450: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/30839/Big_X_Episode_0
+[2016-09-16 20:33:05,435: INFO/MainProcess] Task visualizacion.scrapper.create_anime[50991f3b-778a-4831-b768-b145a817f375] succeeded in 6.238146325s: None
+[2016-09-16 20:33:05,437: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[01a70544-ac6b-4ab1-a763-7f705ed49602]
+[2016-09-16 20:33:14,970: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/31904/Big_Order_TV
+[2016-09-16 20:33:16,545: INFO/MainProcess] Task visualizacion.scrapper.create_anime[bf42e814-43c1-4bce-a0d2-5d5ce4316f61] succeeded in 17.352504498s: None
+[2016-09-16 20:33:16,547: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[043e8b7c-53c6-4aeb-adb5-263afad9eaac]
+[2016-09-16 20:33:16,550: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[daa75733-6cb9-40b8-8417-937a048b91e8]
+[2016-09-16 20:33:16,550: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/8655/Bijukubo
+[2016-09-16 20:33:17,695: INFO/MainProcess] Task visualizacion.scrapper.create_anime[f82e55c5-02ce-4b23-b954-fdc53289f85a] succeeded in 13.292403251s: None
+[2016-09-16 20:33:17,790: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/30782/Bikini_Warriors
+[2016-09-16 20:33:19,837: INFO/MainProcess] Task visualizacion.scrapper.create_anime[c898689c-4809-4a9e-bd43-9440bfb8ebed] succeeded in 14.400962797s: None
+[2016-09-16 20:33:19,838: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[0207be95-a8fb-4e5d-86dd-eba0004e3f92]
+[2016-09-16 20:33:20,302: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/33712/Bikini_Warriors_OVA
+[2016-09-16 20:33:21,262: INFO/MainProcess] Task visualizacion.scrapper.create_anime[af2badc9-d877-4a1f-81c6-6bee64c27950] succeeded in 4.714909406s: None
+[2016-09-16 20:33:21,264: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[134c7fe7-2b52-4dab-8e43-18f6a5f9a8fd]
+[2016-09-16 20:33:21,753: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/4908/Bihada_Ichizoku
