@@ -1,0 +1,4 @@
+*.pyc
+redis-3.2.3
+.idea
+db.sqlite3
