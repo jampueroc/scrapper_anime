@@ -6394,3 +6394,18 @@ OperationalError: database is locked
 [2016-09-16 20:40:42,564: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[b1cef0ad-81ec-4998-b764-9c4275e58002]
 [2016-09-16 20:40:42,705: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/30573/Break_Blade__Virgins_War
 [2016-09-16 20:40:44,643: INFO/MainProcess] Task visualizacion.scrapper.create_anime[74f0ce92-0ed7-4dbf-bbfe-038fb9351b9a] succeeded in 5.706916421s: None
+[2016-09-16 20:40:46,977: WARNING/Worker-1] Creating new Anime for url: https://myanimelist.net/anime/6447/Break-Age
+[2016-09-16 20:40:48,807: INFO/MainProcess] Task visualizacion.scrapper.create_anime[6edd3756-cc3b-4b6b-a271-c975a0146bec] succeeded in 6.255746654s: None
+[2016-09-16 20:40:48,809: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[87c7276f-2cca-49f1-9ec3-e2fec6aebad5]
+[2016-09-16 20:40:48,829: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/9991/Bremen_4__Jigoku_no_Naka_no_Tenshi-tachi
+[2016-09-16 20:40:50,725: INFO/MainProcess] Task visualizacion.scrapper.create_anime[d3edf805-5065-4373-a4f1-b81abcec6b31] succeeded in 8.168551476s: None
+[2016-09-16 20:40:50,728: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[26f5df82-994f-49b7-848c-b3669c3386a2]
+[2016-09-16 20:40:50,809: WARNING/Worker-4] Creating new Anime for url: https://myanimelist.net/anime/8648/Break_Blade_Picture_Drama
+[2016-09-16 20:40:52,082: INFO/MainProcess] Task visualizacion.scrapper.create_anime[2d074a9e-f17b-456d-9d2d-a7b6c544bcb7] succeeded in 11.34319093s: None
+[2016-09-16 20:40:52,085: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[d58bbf8d-5e00-477a-aab6-65ebb1f84ce1]
+[2016-09-16 20:40:52,085: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[0d8142c1-1701-421d-8368-8df1023e71f1]
+[2016-09-16 20:40:52,223: WARNING/Worker-3] Creating new Anime for url: https://myanimelist.net/anime/3007/Bronze__Kouji_Nanjo_Cathexis
+[2016-09-16 20:40:53,591: INFO/MainProcess] Task visualizacion.scrapper.create_anime[eae4b121-15a4-4207-86b0-e48bcbc12069] succeeded in 4.782489942s: None
+[2016-09-16 20:40:55,693: WARNING/Worker-2] Creating new Anime for url: https://myanimelist.net/anime/28305/Broots
+[2016-09-16 20:40:57,041: INFO/MainProcess] Task visualizacion.scrapper.create_anime[5c1ed198-a2de-432d-9e59-9d5d9b4927d6] succeeded in 4.957195207s: None
+[2016-09-16 20:40:57,044: INFO/MainProcess] Received task: visualizacion.scrapper.create_anime[00d5fdd9-1501-4c0b-ba34-b9e79c5d5530]
