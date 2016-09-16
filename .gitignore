@@ -1,5 +1,6 @@
 *.pyc
+*.log
 redis-3.2.3
 .idea
-db.sqlite3
+db.*
 visualizacion/static/bower_components
