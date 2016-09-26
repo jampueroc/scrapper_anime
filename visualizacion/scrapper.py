@@ -7,7 +7,7 @@ from BeautifulSoup import BeautifulSoup
 from celery import current_app as app
 from visualizacion.models.anime import Anime
 from visualizacion.models.genre import Genre
-from visualizacion.models.license import License
+from visualizacion.models.licensor import Licensor
 from visualizacion.models.producer import Producer
 from visualizacion.models.status import Status
 from visualizacion.models.studio import Studio
@@ -59,20 +59,23 @@ class Scrapper:
                         break
                     soup = BeautifulSoup(data)
                     lista = soup.find('div', 'js-categories-seasonal')
-                    anime_trs = lista.findAll('tr')
-                    for anime_tr in anime_trs:
-                        try:
-                            anime_url=  anime_tr.find('div', 'picSurround').find('a')['href']
-                            anime_url = anime_url.encode('ascii', 'ignore')
-                            # try:
-                            if sync:
-                                create_anime(anime_url)
-                            else:
-                                create_anime.apply_async((anime_url,))
-                            # except Exception:
-                            #     urls_with_error.append(anime_url)
-                        except AttributeError:
-                            continue
+                    try:
+                        anime_trs = lista.findAll('tr')
+                        for anime_tr in anime_trs:
+                            try:
+                                anime_url=  anime_tr.find('div', 'picSurround').find('a')['href']
+                                anime_url = anime_url.encode('ascii', 'ignore')
+                                # try:
+                                if sync:
+                                    create_anime(anime_url)
+                                else:
+                                    create_anime.apply_async((anime_url,))
+                                # except Exception:
+                                #     urls_with_error.append(anime_url)
+                            except AttributeError:
+                                continue
+                    except Exception:
+                        pass
 
         print "Finished"
         return urls_with_error
@@ -102,7 +105,8 @@ def create_anime(anime_url):
 def set_atributes(anime, data_anime, edit_basic_info=False):
     atributes = data_anime.findAll('span', "dark_text")
     anime.save()
-    blacklist = ['N/A', 'None found','Unknown', 'Not available', 'None']
+    blacklist = ['N/A', 'None found','Unknown', 'Not available',
+                 'No genres have been added yet.', 'None']
     for atribute in atributes:
         atribute_text = atribute.text
         atribute_value = atribute.parent.text.split(':')[1]
@@ -128,10 +132,7 @@ def set_atributes(anime, data_anime, edit_basic_info=False):
                 list_titles.append(title)
             anime.name_alternatives.add(*list_titles)
         elif atribute_text.startswith('Japanese:') and edit_basic_info:
-            title = Title()
-            title.name = atribute_value
-            title.save()
-            anime.name_japanese = title
+            anime.name_japanese = atribute_value
 
         elif atribute_text.startswith('Type:') and edit_basic_info:
             type , created = Type.objects.get_or_create(name=atribute_value)
@@ -152,12 +153,9 @@ def set_atributes(anime, data_anime, edit_basic_info=False):
                     date = datetime.datetime.strptime(atribute_value.strip(), '%Y')
             anime.aired = date
 
-        # Foreing key
         elif atribute_text.startswith('Status:'):
-            status, created = Status.objects.get_or_create(name=atribute_value)
-            if created:
-                status.save()
-            anime.status = status
+            anime.status = atribute_value
+
         # Many to many
         elif atribute_text.startswith('Producers:'):
             producers = atribute_value.split(',')
@@ -169,18 +167,28 @@ def set_atributes(anime, data_anime, edit_basic_info=False):
                 list_p.append(producer)
 
             anime.producers.add(*list_p)
-        # Foreing key
+        # Many to many
         elif atribute_text.startswith('Licensors:'):
-            licensor, created = License.objects.get_or_create(name=atribute_value)
-            if created:
-                licensor.save()
-            anime.license = licensor
-        # Foreing key
+            licensors = atribute_value.split(',')
+            list_l = list()
+            for l in licensors:
+                object, created = Licensor.objects.get_or_create(name=l)
+                if created:
+                    object.save()
+                list_l.append(object)
+
+            anime.licensor.add(*list_l)
+        # Many to many
         elif atribute_text.startswith('Studios:'):
-            studio, created = Studio.objects.get_or_create(name=atribute_value)
-            if created:
-                studio.save()
-            anime.studios = studio
+            studio = atribute_value.split(',')
+            list_s = list()
+            for s in studio:
+                object, created = Studio.objects.get_or_create(name=s)
+                if created:
+                    object.save()
+                list_s.append(object)
+
+            anime.studios.add(*list_s)
 
         # Many to many
         elif atribute_text.startswith('Genres:') and edit_basic_info:

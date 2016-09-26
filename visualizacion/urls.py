@@ -16,10 +16,20 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from visualizacion.views import IndexView
+from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', IndexView.as_view(),
+    url(
+        r'^json/genre/$', views.genre_percent,
+        name='json_genre_percent'
+    ),
+    url(
+        r'^json/null/$', views.get_number_nulls,
+        name='json_null'
+    ),
+    url(r'^$', views.IndexView.as_view(),
         name='index'),
+
+
 ]
