@@ -6,3 +6,4 @@ db.*
 visualizacion/static/bower_components
 celery/
 visualizacion/staticfiles
+visualizacion/settings_secret.py
