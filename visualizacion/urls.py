@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url, patterns
 from django.contrib import admin
-
+from django.conf.urls.static import static
+from django.conf import settings
+import os
+from django.views.static import serve as staticserve
 from . import views
 
 urlpatterns = [
@@ -32,11 +35,9 @@ urlpatterns = [
         name='index'),
 
 
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-from django.conf import settings
-import os
-from django.views.static import serve as staticserve
+
 
 if not settings.DEBUG:
     urlpatterns += patterns('',
