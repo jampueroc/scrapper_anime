@@ -5,6 +5,7 @@ BeautifulSoup==3.2.1
 billiard==3.3.0.23
 celery==3.1.23
 decorator==4.0.10
+dj-static==0.0.6
 Django==1.9.2
 django-celery==3.1.17
 django-extensions==1.7.4
@@ -26,5 +27,6 @@ pytz==2016.6.1
 redis==2.10.5
 simplegeneric==0.8.1
 six==1.10.0
+static3==0.7.0
 traitlets==4.3.0
 wcwidth==0.1.7
