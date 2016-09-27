@@ -17,5 +17,9 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "c3": "^0.4.11"
+  },
+  "scripts": {
+      "start": "node index.js",
+      "postinstall": "bower install"
   }
 }
