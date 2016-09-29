@@ -2,7 +2,9 @@ import json
 import operator
 from collections import OrderedDict
 
+import datetime
 from django.http.response import JsonResponse
+from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
 
 from visualizacion.models.anime import Anime
@@ -59,3 +61,78 @@ def get_number_nulls(request):
     result['popularity'] = Anime.objects.filter(popularity__isnull=True).count()
     dict_ordered = OrderedDict(sorted(result.items(), key=operator.itemgetter(1), reverse=True))
     return JsonResponse( dict_ordered, safe=False)
+
+
+@cache_page(60 * 15, key_prefix="json_producers")
+def get_genres_by_producers(request):
+    result = dict()
+    producers = Producer.objects.all()
+    genres = Genre.objects.all()
+    total = Anime.objects.all().count()
+    for p in producers:
+        list_p = list()
+        for g in genres:
+            list_p.append(Anime.objects.filter(producers=p,genres=g).count())
+        result[p.name] = list_p
+    dict_result= {
+        'producers':result,
+        'categories': [g.name for g in genres]
+    }
+    return JsonResponse(dict_result, safe=False)
+
+
+def great_producers(request):
+    genres = Genre.objects.all()
+    producers = Producer.objects.all()
+    list_results = list()
+    for g in genres:
+        for p in producers:
+            result = dict()
+            gen_prod_count= Anime.objects.filter(genres=g, producers=p).count()
+            result['genre']= g.name
+            result['producer']= p.name
+            result['production']= gen_prod_count
+            list_results.append(result)
+    return JsonResponse(list_results, safe=False)
+
+def anual_genres_ranking(request):
+    genres = Genre.objects.all()
+    start_year = 1980
+    generation_gap= 1
+    year= start_year + generation_gap
+    list_results = list()
+    while year > start_year and year < 2017:
+        for g in genres:
+            result = dict()
+            gen_count= Anime.objects.filter(genres=g,aired__year=year).count() #add filter of date
+            result['year']= year
+            result['production']= gen_count
+            result['genre']= g.name
+            list_results.append(result)
+        year= year + generation_gap
+    return JsonResponse( list_results, safe=False)
+
+def anual_genres_battle(request):
+    genres = Genre.objects.all()
+    start_year = 1980
+    generation_gap= 1
+    year= start_year + generation_gap
+    list_results = list()
+    while year > start_year and year < 2017:
+        result = dict()
+        shounen_count= Anime.objects.filter(genres__name="Shounen",aired__year=year).count() #add filter of date
+        shoujo_count= Anime.objects.filter(genres__name="Shoujo",aired__year=year).count() #add filter of date
+        ecchi_count= Anime.objects.filter(genres__name="Ecchi",aired__year=year).count() #add filter of date
+        hentai_count= Anime.objects.filter(genres__name="Hentai",aired__year=year).count() #add filter of date
+        yaoi_count= Anime.objects.filter(genres__name="Yaoi",aired__year=year).count() #add filter of date
+        yuri_count= Anime.objects.filter(genres__name="Yuri",aired__year=year).count() #add filter of date
+        result['year']= year
+        result['shounen']= shounen_count
+        result['shoujo']= shoujo_count
+        result['ecchi']= ecchi_count
+        result['hentai']= hentai_count
+        result['yaoi']= yaoi_count
+        result['yuri']= yuri_count
+        list_results.append(result)
+        year= year + generation_gap
+    return JsonResponse( list_results, safe=False)

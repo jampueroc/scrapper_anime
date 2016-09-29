@@ -31,6 +31,22 @@ urlpatterns = [
         r'^json/null/$', views.get_number_nulls,
         name='json_null'
     ),
+    url(
+        r'^json/producer/$', views.get_genres_by_producers,
+        name='json_producer'
+    ),
+    url(
+        r'^json/anual_genres_ranking/$', views.anual_genres_ranking,
+        name='json_anual_genres_ranking'
+    ),
+    url(
+        r'^json/great_producers/$', views.great_producers,
+        name='json_great_producers'
+    ),
+    url(
+        r'^json/anual_genres_battle/$', views.anual_genres_battle,
+        name='json_anual_genres_battle'
+    ),
     url(r'^$', views.IndexView.as_view(),
         name='index'),
 
