@@ -51,6 +51,7 @@ def genre_percent(request):
         anime = dict()
         anime['name'] = g.name
         anime['value'] = 1.0*anime_genre/total
+        anime['total'] = total
         anime['id'] = g.id
         result.append(anime)
     return JsonResponse(result, safe=False)
