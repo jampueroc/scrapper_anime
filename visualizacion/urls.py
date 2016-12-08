@@ -47,6 +47,10 @@ urlpatterns = [
         r'^json/anual_genres_battle/$', views.anual_genres_battle,
         name='json_anual_genres_battle'
     ),
+    url(r'^d3/$', views.TryingD3.as_view(),
+        name='try_d3'),
+    url(r'^genre/(?P<pk>\d+)/$', views.GenreDetail.as_view(),
+        name='genre'),
     url(r'^$', views.IndexView.as_view(),
         name='index'),
 

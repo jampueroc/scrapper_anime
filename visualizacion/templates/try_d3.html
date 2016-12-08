@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+{#    Versión 4 de d3#}
+        <script type="text/javascript" src="{% static 'js/d3.min.js' %}"></script>
+    <style>
+
+        text {
+            font: 10px sans-serif;
+            text-anchor: middle;
+        }
+
+    </style>
+
+    <script>
+
+        var diameter = 500, //max size of the bubbles
+                color = d3.scaleOrdinal(d3.schemeCategory20c); //color category
+
+        var bubble = d3.pack()
+                .size([diameter, diameter])
+                .padding(1.5);
+
+        var svg = d3.select("body")
+                .append("svg")
+                .attr("width", diameter)
+                .attr("height", diameter)
+                .attr("class", "bubble");
+        var pack = d3.pack()
+                .size([diameter, diameter])
+                .padding(1.5);
+
+        d3.json("{% url 'json_genre_percent' %}", function(error, data){
+            if (error) throw error;
+
+            var root = d3.hierarchy({children: data})
+                    .sum(function(d) { return d.value; })
+                    .sort(function(a, b) { return b.value - a.value; });
+            {#    debugger;#}
+
+            var node = svg.selectAll(".node")
+                    .data(pack(root).leaves())
+                    .enter().append("g")
+                    .attr("class", "node")
+                    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+            node.append("title")
+                    .text(function(d) { return d.name; });
+
+            node.append("circle")
+                    .attr("r", function(d) { return d.r; })
+                    .style("fill", function(d) {
+                        return color(d.data.name);
+                    })
+            .on("click", function(d) {window.location.href = "/genre/"+d.data.id;});
+
+            node.append("text")
+                    .attr("dy", ".3em")
+                    .style("text-anchor", "middle")
+                    .text(function(d) { return d.data.name; });
+
+
+        });
+
+
+
+
+    </script>
+
+{% endblock %}

@@ -6,6 +6,7 @@ import datetime
 from django.http.response import JsonResponse
 from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
+from django.views.generic.detail import DetailView
 
 from visualizacion.models.anime import Anime
 from visualizacion.models.genre import Genre
@@ -31,15 +32,28 @@ class IndexView(TemplateView):
         return context
 
 
+class TryingD3(IndexView):
+    template_name = 'try_d3.html'
+
+
+class GenreDetail(DetailView):
+    model = Genre
+    template_name = 'genre_detail.html'
+
+
+
 def genre_percent(request):
-    result = dict()
+    result = []
     genres = Genre.objects.all()
     total = Anime.objects.all().count()
     for g in genres:
         anime_genre = Anime.objects.filter(genres=g).count()
-        result[g.name] = [1.0*anime_genre/total]
-    dict_ordered = OrderedDict(sorted(result.items(), key=operator.itemgetter(1), reverse=True))
-    return JsonResponse( dict_ordered, safe=False)
+        anime = dict()
+        anime['name'] = g.name
+        anime['value'] = 1.0*anime_genre/total
+        anime['id'] = g.id
+        result.append(anime)
+    return JsonResponse(result, safe=False)
 
 
 def get_number_nulls(request):

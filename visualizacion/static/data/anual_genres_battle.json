@@ -1,0 +1,326 @@
+[
+  {
+    "ecchi": 2,
+    "shounen": 15,
+    "shoujo": 4,
+    "yuri": 0,
+    "year": 1981,
+    "hentai": 0,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 0,
+    "shounen": 14,
+    "shoujo": 5,
+    "yuri": 0,
+    "year": 1982,
+    "hentai": 0,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 0,
+    "shounen": 17,
+    "shoujo": 4,
+    "yuri": 0,
+    "year": 1983,
+    "hentai": 0,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 0,
+    "shounen": 10,
+    "shoujo": 6,
+    "yuri": 1,
+    "year": 1984,
+    "hentai": 7,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 2,
+    "shounen": 21,
+    "shoujo": 8,
+    "yuri": 1,
+    "year": 1985,
+    "hentai": 15,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 3,
+    "shounen": 27,
+    "shoujo": 14,
+    "yuri": 0,
+    "year": 1986,
+    "hentai": 1,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 7,
+    "shounen": 23,
+    "shoujo": 6,
+    "yuri": 1,
+    "year": 1987,
+    "hentai": 5,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 4,
+    "shounen": 25,
+    "shoujo": 9,
+    "yuri": 0,
+    "year": 1988,
+    "hentai": 4,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 7,
+    "shounen": 31,
+    "shoujo": 9,
+    "yuri": 0,
+    "year": 1989,
+    "hentai": 6,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 5,
+    "shounen": 24,
+    "shoujo": 15,
+    "yuri": 0,
+    "year": 1990,
+    "hentai": 12,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 9,
+    "shounen": 29,
+    "shoujo": 13,
+    "yuri": 1,
+    "year": 1991,
+    "hentai": 8,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 10,
+    "shounen": 30,
+    "shoujo": 14,
+    "yuri": 0,
+    "year": 1992,
+    "hentai": 6,
+    "yaoi": 2
+  },
+  {
+    "ecchi": 2,
+    "shounen": 35,
+    "shoujo": 14,
+    "yuri": 0,
+    "year": 1993,
+    "hentai": 2,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 10,
+    "shounen": 41,
+    "shoujo": 9,
+    "yuri": 2,
+    "year": 1994,
+    "hentai": 19,
+    "yaoi": 3
+  },
+  {
+    "ecchi": 9,
+    "shounen": 32,
+    "shoujo": 15,
+    "yuri": 2,
+    "year": 1995,
+    "hentai": 16,
+    "yaoi": 1
+  },
+  {
+    "ecchi": 12,
+    "shounen": 46,
+    "shoujo": 9,
+    "yuri": 2,
+    "year": 1996,
+    "hentai": 28,
+    "yaoi": 3
+  },
+  {
+    "ecchi": 11,
+    "shounen": 41,
+    "shoujo": 7,
+    "yuri": 0,
+    "year": 1997,
+    "hentai": 23,
+    "yaoi": 1
+  },
+  {
+    "ecchi": 8,
+    "shounen": 39,
+    "shoujo": 11,
+    "yuri": 0,
+    "year": 1998,
+    "hentai": 23,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 13,
+    "shounen": 41,
+    "shoujo": 8,
+    "yuri": 2,
+    "year": 1999,
+    "hentai": 28,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 8,
+    "shounen": 37,
+    "shoujo": 9,
+    "yuri": 1,
+    "year": 2000,
+    "hentai": 42,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 11,
+    "shounen": 50,
+    "shoujo": 14,
+    "yuri": 2,
+    "year": 2001,
+    "hentai": 80,
+    "yaoi": 1
+  },
+  {
+    "ecchi": 15,
+    "shounen": 60,
+    "shoujo": 10,
+    "yuri": 1,
+    "year": 2002,
+    "hentai": 67,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 18,
+    "shounen": 58,
+    "shoujo": 9,
+    "yuri": 2,
+    "year": 2003,
+    "hentai": 73,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 27,
+    "shounen": 64,
+    "shoujo": 18,
+    "yuri": 2,
+    "year": 2004,
+    "hentai": 56,
+    "yaoi": 2
+  },
+  {
+    "ecchi": 25,
+    "shounen": 64,
+    "shoujo": 18,
+    "yuri": 1,
+    "year": 2005,
+    "hentai": 43,
+    "yaoi": 2
+  },
+  {
+    "ecchi": 23,
+    "shounen": 52,
+    "shoujo": 26,
+    "yuri": 1,
+    "year": 2006,
+    "hentai": 40,
+    "yaoi": 1
+  },
+  {
+    "ecchi": 24,
+    "shounen": 39,
+    "shoujo": 13,
+    "yuri": 0,
+    "year": 2007,
+    "hentai": 46,
+    "yaoi": 7
+  },
+  {
+    "ecchi": 33,
+    "shounen": 48,
+    "shoujo": 22,
+    "yuri": 2,
+    "year": 2008,
+    "hentai": 39,
+    "yaoi": 3
+  },
+  {
+    "ecchi": 40,
+    "shounen": 41,
+    "shoujo": 16,
+    "yuri": 3,
+    "year": 2009,
+    "hentai": 42,
+    "yaoi": 3
+  },
+  {
+    "ecchi": 46,
+    "shounen": 69,
+    "shoujo": 23,
+    "yuri": 3,
+    "year": 2010,
+    "hentai": 57,
+    "yaoi": 5
+  },
+  {
+    "ecchi": 47,
+    "shounen": 71,
+    "shoujo": 30,
+    "yuri": 4,
+    "year": 2011,
+    "hentai": 63,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 43,
+    "shounen": 76,
+    "shoujo": 28,
+    "yuri": 1,
+    "year": 2012,
+    "hentai": 46,
+    "yaoi": 2
+  },
+  {
+    "ecchi": 33,
+    "shounen": 69,
+    "shoujo": 31,
+    "yuri": 0,
+    "year": 2013,
+    "hentai": 58,
+    "yaoi": 1
+  },
+  {
+    "ecchi": 41,
+    "shounen": 85,
+    "shoujo": 41,
+    "yuri": 1,
+    "year": 2014,
+    "hentai": 63,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 46,
+    "shounen": 80,
+    "shoujo": 31,
+    "yuri": 2,
+    "year": 2015,
+    "hentai": 55,
+    "yaoi": 0
+  },
+  {
+    "ecchi": 24,
+    "shounen": 71,
+    "shoujo": 32,
+    "yuri": 0,
+    "year": 2016,
+    "hentai": 37,
+    "yaoi": 1
+  }
+]
