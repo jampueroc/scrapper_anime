@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="accordion">
+  <div>
+    <!--panel 1 (Bubblechart)-->
+
+    <center><h1>Géneros de animé</h1></center>
+    <a data-toggle="collapse" data-partent="#accordion" href="#genero">
+      Click aquí para desplegar el segundo panel: "Evolución del género"
+    </a>
+    <!--fin panel 1 (Bubblechart)-->
+  </div>
+  <div id="genero" class="panel-collapse collapse">
+    <!--panel 2 (Historial de género)-->
+    <div>
+      <!-- Cuerpo colapsable-->
+      <div class="row">
+        <div class="col-sm-8"><h1>Nombre de género </h1></div>
+        <div class="col-sm-4"> <i> Insertar selector aquí </i> </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <!-- columna de la izquierda-->
+          <h2><b> Top 5 Productoras <b></h2>
+          <p>Las 5 productoras que más estrenos de este género han tenido en el año </p>
+          <h3><a data-toggle="collapse" data-partent="#accordion" href="#productora">
+            1. P1
+          </a></h3>
+          <h3><a data-toggle="collapse" data-partent="#accordion" href="#productora">
+            2. P2
+          </a></h3>
+          <h3><a data-toggle="collapse" data-partent="#accordion" href="#productora">
+            3. P3
+          </a></h3>
+          <h3><a data-toggle="collapse" data-partent="#accordion" href="#productora">
+            4. P4
+          </a></h3>
+          <h3><a data-toggle="collapse" data-partent="#accordion" href="#productora">
+            5. P5
+          </a></h3>
+        </div>
+        <div class="col-sm-8">
+          <!-- columna de la derecha-->
+          <div>
+            <h2><b>Ranking</b></h2>
+            <p><b># N°</b></p>
+          </div>
+          <div> Insertar gráfico historial aquí </div>
+        </div>
+      </div>
+      <!-- fin Cuerpo colapsable-->
+    </div>
+    <!--fin panel 2 (Historial de género)-->
+  </div>
+  <div id="productora" class="panel-collapse collapse">
+    <!--panel 3 (Historial de productora)-->
+    <div>
+      <!-- Cuerpo colapsable-->
+      <div class="row">
+        <div class="col-sm-8"><h1>Nombre de productora </h1></div>
+        <div class="col-sm-4"> <i> Insertar selector aquí </i> </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <!-- columna de la izquierda-->
+          <h2><b> Top 5 Productoras <b></h2>
+          <p>Las 5 productoras que más estrenos de este género han tenido en el año </p>
+          <h3><a data-toggle="collapse" data-partent="#accordion" href="#genero">
+            1. G1
+          </a></h3>
+          <h3><a data-toggle="collapse" data-partent="#accordion" href="#genero">
+            2. G2
+          </a></h3>
+          <h3><a data-toggle="collapse" data-partent="#accordion" href="#genero">
+            3. G3
+          </a></h3>
+          <h3><a data-toggle="collapse" data-partent="#accordion" href="#genero">
+            4. G4
+          </a></h3>
+          <h3><a data-toggle="collapse" data-partent="#accordion" href="#genero">
+            5. G5
+          </a></h3>
+        </div>
+        <div class="col-sm-8">
+          <!-- columna de la derecha-->
+          <div>
+            <h2><b>Ranking</b></h2>
+            <p><b># N°</b></p>
+          </div>
+          <div> Insertar gráfico para el 3er panel </div>
+        </div>
+      </div>
+      <!-- fin Cuerpo colapsable-->
+    </div>
+    <!--fin panel 3 (Historial de productora)-->
+  </div>
+  <div>
+    <!--panel 4 (Versus)-->
+    <div class="row">
+      <div class="col-sm-4">
+        <h5><i>Seleccione un género</i><h5>
+      </div>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        Selector de géneros 2
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <h5><i>Seleccione otro género</i><h5>
+      </div>
+      <div class="col-sm-4">
+        <center><h1><b>V/S</b></h1></center>
+      </div>
+      <div class="col-sm-4">
+        Selector de géneros 2
+      </div>
+    </div>
+    <div class="row">
+      Insertar gráfico para el 4to panel
+    </div>
+    <!--fin panel 4 (Versus)-->
+  </div>
+</div><!--fin acordion->
+
+{% endblock %}
