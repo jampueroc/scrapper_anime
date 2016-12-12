@@ -40,6 +40,14 @@ urlpatterns = [
         name='json_anual_genres_ranking'
     ),
     url(
+        r'^json/genre_ranking/(?P<pk>\d+)/$', views.GenreDataView.as_view(),
+        name='json_genre_ranking'
+    ),
+    url(
+        r'^json/producer_ranking/(?P<pk>\d+)/$', views.ProducerDataView.as_view(),
+        name='json_producer_ranking'
+    ),
+    url(
         r'^json/great_producers/$', views.great_producers,
         name='json_great_producers'
     ),
@@ -51,9 +59,10 @@ urlpatterns = [
         name='try_d3'),
     url(r'^genre/(?P<pk>\d+)/$', views.GenreDetail.as_view(),
         name='genre'),
-    url(r'^$', views.AccordionTheme.as_view(),
+    url(r'^final/$', views.FinalVersionView.as_view(),
+        name='final'),
+    url(r'^$', views.IndexView.as_view(),
         name='index'),
-
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

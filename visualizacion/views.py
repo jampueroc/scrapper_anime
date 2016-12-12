@@ -3,6 +3,8 @@ import operator
 from collections import OrderedDict
 
 import datetime
+
+from django.db.models.aggregates import Count
 from django.http.response import JsonResponse
 from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
@@ -153,10 +155,38 @@ def anual_genres_battle(request):
     return JsonResponse( list_results, safe=False)
 
 
-class AccordionTheme(TemplateView):
+class FinalVersionView(TemplateView):
     template_name = "test.html"
 
     def get_context_data(self, **kwargs):
-        context = super(AccordionTheme,self).get_context_data(**kwargs)
-        context['genres'] = Genre.objects.all()
+        context = super(FinalVersionView, self).get_context_data(**kwargs)
+        context['genres'] = Genre.objects.all().order_by('name')
+        context['producers'] = Producer.objects.all().order_by('name')
+        positions = Anime.objects.values('genres__name').annotate(dcount=Count('*')).order_by('-dcount')
+        context['ranking'] = { p['genres__name']: index+1 for index, p in enumerate(positions)}
+        positions = Anime.objects.values('producers__name').annotate(dcount=Count('*')).order_by('-dcount')
+        context['ranking_producers'] = { p['producers__name']: index+1 for index, p in enumerate(positions)}
         return context
+
+
+class GenreDataView(DetailView):
+    model = Genre
+    def get(self, request, *args, **kwargs):
+        result = Anime.objects.filter(
+            genres=self.get_object()
+        ).values(
+            'producers','producers__name'
+        ).annotate(dcount=Count('producers')).order_by('-dcount')[:5]
+        return JsonResponse(list(result),safe=False)
+
+
+class ProducerDataView(DetailView):
+    model = Producer
+
+    def get(self, request, *args, **kwargs):
+        result = Anime.objects.filter(
+            producers=self.get_object()
+        ).values(
+            'genres', 'genres__name'
+        ).annotate(dcount=Count('genres')).order_by('-dcount')[:5]
+        return JsonResponse(list(result), safe=False)

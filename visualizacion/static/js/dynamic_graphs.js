@@ -44,8 +44,8 @@ d3.json(url_json_percent, function(error, root) {
       })
       .on("mouseout", function(){return tooltip.style("visibility", "hidden");})
     .on("click",function (d) {
-        $('#hidden_genre_ref').click();
-        window.location.href = '#genero';
+        $("#genres").val(d.name).trigger("change");
+        $('#ref_g').click();
 
     });
 
