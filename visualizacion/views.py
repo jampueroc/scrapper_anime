@@ -151,3 +151,12 @@ def anual_genres_battle(request):
         list_results.append(result)
         year= year + generation_gap
     return JsonResponse( list_results, safe=False)
+
+
+class AccordionTheme(TemplateView):
+    template_name = "test.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(AccordionTheme,self).get_context_data(**kwargs)
+        context['genres'] = Genre.objects.all()
+        return context

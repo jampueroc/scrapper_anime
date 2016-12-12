@@ -51,7 +51,7 @@ urlpatterns = [
         name='try_d3'),
     url(r'^genre/(?P<pk>\d+)/$', views.GenreDetail.as_view(),
         name='genre'),
-    url(r'^$', views.IndexView.as_view(),
+    url(r'^$', views.AccordionTheme.as_view(),
         name='index'),
 
 
