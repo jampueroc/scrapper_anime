@@ -182,10 +182,12 @@
                     <h3><a class="top_producer" href="#producer">
                         5. <span class="producer_ranking"></span>, <span class="producer_count"></span>
                     </a></h3>
+                    <hr>
+                    <p>Segundo gráfico permite seleccionar areas para hacer zoom</p>
                 </div>
                 <div class="col-sm-8">
                     <!-- columna de la derecha-->
-                    <div> Insertar gráfico historial aquí</div>
+                    <div id="genre_graph"></div>
                 </div>
             </div>
             <!-- fin Cuerpo colapsable-->
@@ -236,9 +238,11 @@
             <h3><a class="top_genre" href="#genre">
                 5. <span class="genre_ranking"></span>, <span class="genre_count"></span>
             </a></h3>
+            <hr>
+                    <p>Segundo gráfico permite seleccionar areas para hacer zoom</p>
         </div>
         <div class="col-sm-8">
-            <div> Insertar gráfico para el 3er panel</div>
+            <div id="producer_graph"></div>
         </div>
 
     </div>
@@ -339,6 +343,8 @@
     $('select').select2({
         language: "es"
     });
+
+
     $("#genres").on("change", function () {
         var name = $(this).val();
         var id = $( "#genres option:selected" ).attr('id');
@@ -353,9 +359,57 @@
                 $(producers[i]).text(producer_name);
                 $(counts[i]).text(total);
             }
+            if(data.length<5){
+                for(var i=data.length;i<5;i++){
+                    $(producers[i]).text("-");
+                $(counts[i]).text(0);
+                }
+            }
         });
 
+        var genre_graph = c3.generate({
+        bindto:"#genre_graph",
+        size: {
+            height: 700
+        },
+        data: {
+            url: "/json/genre_graph/"+id,
+            mimeType: 'json',
+                    keys: {
+            x: 'year',
+            value: ['producciones']
+        }
+        },
+        keys: {
+            x: 'year',
+            value: ['producciones']
+        },
+        axis: {
+        y: {
+            label: {
+                text: 'Total de producciones por año',
+                position: 'outer-middle'
+            },
+            padding: {top:0, bottom:0}
+        },
+        x: {
+            label: {
+                text: 'Año',
+                position: 'outer-middle'
+            }
+        }
+    },
+    subchart: {
+        show: true
+    },
+            legend: {
+        show: false
+    }
     });
+
+    });
+
+
     $("#producers").on("change", function () {
         var name = $(this).val();
         var id = $( "#producers option:selected" ).attr('id');
@@ -370,9 +424,55 @@
                 $(producers[i]).text(producer_name);
                 $(counts[i]).text(total);
             }
+            if(data.length<5){
+                for(var i=data.length;i<5;i++){
+                    $(producers[i]).text("-");
+                $(counts[i]).text(0);
+                }
+            }
         });
-
+                var producer_graph = c3.generate({
+        bindto:"#producer_graph",
+        size: {
+            height: 700
+        },
+        data: {
+            url: "/json/producer_graph/"+id,
+            mimeType: 'json',
+                    keys: {
+            x: 'year',
+            value: ['producciones']
+        }
+        },
+        keys: {
+            x: 'year',
+            value: ['producciones']
+        },
+        axis: {
+        y: {
+            label: {
+                text: 'Total de producciones por año',
+                position: 'outer-middle'
+            },
+            padding: {top:0, bottom:0},
+            format: d3.format("")
+        },
+        x: {
+            label: {
+                text: 'Año',
+                position: 'outer-middle'
+            }
+        }
+    },
+    subchart: {
+        show: true
+    },
+            legend: {
+        show: false
+    }
     });
+    });
+
 
     $(".top_producer").click(function() {
         $("#producers").val($(this).find("span:first").text()).trigger("change");
@@ -388,6 +488,7 @@
         $("#genres").val("Hentai").trigger("change");
         $("#producers").val("Bandai").trigger("change");
 });
+
 </script>
 </body>
 

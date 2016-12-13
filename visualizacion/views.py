@@ -190,3 +190,53 @@ class ProducerDataView(DetailView):
             'genres', 'genres__name'
         ).annotate(dcount=Count('genres')).order_by('-dcount')[:5]
         return JsonResponse(list(result), safe=False)
+
+
+class GenreDataGraphView(DetailView):
+    model = Genre
+
+    def get(self, request, *args, **kwargs):
+        result = Anime.objects.filter(
+            genres=self.get_object(), aired__isnull=False
+        ).extra(select={'year': "EXTRACT(year FROM aired)"}).values('year').annotate(producciones=Count('*')).order_by('year')
+        i = 1
+        list_result = []
+        list_result.append(result[0])
+        last = result[0]
+        while  last['year']<result[len(result)-1]['year']:
+            current = result[i]
+            if current['year']-1 != last['year']:
+                last = {
+                    'year': last['year']+1,
+                    'producciones': 0
+                }
+            else:
+                last = current
+                i+=1
+            list_result.append(last)
+        return JsonResponse(list_result, safe=False)
+
+
+class ProducerDataGraphView(DetailView):
+    model = Producer
+
+    def get(self, request, *args, **kwargs):
+        result = Anime.objects.filter(
+            producers=self.get_object(), aired__isnull=False
+        ).extra(select={'year': "EXTRACT(year FROM aired)"}).values('year').annotate(producciones=Count('*')).order_by('year')
+        i = 1
+        list_result = []
+        list_result.append(result[0])
+        last = result[0]
+        while last['year']<result[len(result)-1]['year']:
+            current = result[i]
+            if current['year']-1 != last['year']:
+                last = {
+                    'year': last['year']+1,
+                    'producciones': 0
+                }
+            else:
+                last = current
+                i+=1
+            list_result.append(last)
+        return JsonResponse(list_result, safe=False)

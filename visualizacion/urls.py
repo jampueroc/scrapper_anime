@@ -44,6 +44,14 @@ urlpatterns = [
         name='json_genre_ranking'
     ),
     url(
+        r'^json/genre_graph/(?P<pk>\d+)/$', views.GenreDataGraphView.as_view(),
+        name='json_genre_graph'
+    ),
+    url(
+        r'^json/producer_graph/(?P<pk>\d+)/$', views.ProducerDataGraphView.as_view(),
+        name='json_producer_graph'
+    ),
+    url(
         r'^json/producer_ranking/(?P<pk>\d+)/$', views.ProducerDataView.as_view(),
         name='json_producer_ranking'
     ),
