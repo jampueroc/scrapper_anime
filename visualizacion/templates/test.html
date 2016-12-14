@@ -78,7 +78,7 @@
                     data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Inicio</a>
+            <a class="navbar-brand page-scroll" href="#page-top" id="ref_top">Inicio</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -544,7 +544,7 @@
         $("#producers").val("Bandai").trigger("change");
         $("#genres1").val("Yaoi").trigger("change");
         $("#genres2").val("Yuri").trigger("change");
-        setTimeout(update_versus,1000)
+        $('#ref_top').click()
 
 });
 
