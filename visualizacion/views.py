@@ -255,7 +255,7 @@ class VersusGraphView(TemplateView):
         ).extra(select={'year': "EXTRACT(year FROM aired)"}).values('genres','year').annotate(dcount=Count('*')).order_by('year')
         i = 1
         list_years = []
-        years_query = Anime.objects.filter(genres__pk__in=[1,5]).extra(select={'year': "EXTRACT(year FROM aired)"}).values('year').distinct().order_by('year')
+        years_query = Anime.objects.filter(genres__pk__in=[g1,g2]).extra(select={'year': "EXTRACT(year FROM aired)"}).values('year').distinct().order_by('year')
         last = None
         for item in years_query:
             if item['year'] is not None:
