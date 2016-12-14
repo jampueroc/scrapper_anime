@@ -268,7 +268,7 @@
                 <div class="col-xs-12">
                     <select id="genres1" class="select">
                         {% for g in genres %}
-                            <option value="{{ g }}" id="{{ g.id }}" >{{ g }}</option>
+                            <option value="{{ g }}" id="{{ g.id }}" {% if g.name == 'Yaoi' %}selected{% endif %}>{{ g }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -542,7 +542,7 @@
     $( document ).ready(function() {
         $("#genres").val("Hentai").trigger("change");
         $("#producers").val("Bandai").trigger("change");
-        $("#genres1").val("Yaoi").trigger("change");
+{#        $("#genres1").val("Yaoi").trigger("change");#}
         $("#genres2").val("Yuri").trigger("change");
         $('#ref_top').click();
 });
