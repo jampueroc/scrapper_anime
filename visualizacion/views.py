@@ -240,3 +240,76 @@ class ProducerDataGraphView(DetailView):
                 i+=1
             list_result.append(last)
         return JsonResponse(list_result, safe=False)
+
+
+class VersusGraphView(TemplateView):
+
+    def get(self, request, *args, **kwargs):
+        g1 = int(request.GET.get('g1'))
+        g2 = int(request.GET.get('g2'))
+        g1_result = Anime.objects.filter(
+             aired__isnull=False, genres__pk=g1
+        ).extra(select={'year': "EXTRACT(year FROM aired)"}).values('genres','year').annotate(dcount=Count('*')).order_by('year')
+        g2_result = Anime.objects.filter(
+             aired__isnull=False, genres__pk=g2
+        ).extra(select={'year': "EXTRACT(year FROM aired)"}).values('genres','year').annotate(dcount=Count('*')).order_by('year')
+        i = 1
+        list_years = []
+        years_query = Anime.objects.filter(genres__pk__in=[1,5]).extra(select={'year': "EXTRACT(year FROM aired)"}).values('year').distinct().order_by('year')
+        last = None
+        for item in years_query:
+            if item['year'] is not None:
+                if last is None:
+                    last = item['year']
+                elif last+1 != item['year']:
+                    while last+1 != item['year']:
+                        last +=1
+                        list_years.append(last)
+                list_years.append(item['year'])
+                last = item['year']
+        i = 0
+        j =0
+        list_g1 = []
+        g1_name= Genre.objects.get(id=g1).name
+        # import ipdb; ipdb.set_trace()
+        while i<len(list_years) :
+            if j<len(g1_result) and g1_result[j]['year'] is not None:
+                if g1_result[j]['year'] == list_years[i]:
+                    list_g1.append(g1_result[j]['dcount'])
+                    j += 1
+                    i += 1
+                else:
+                    while g1_result[j]['year'] > list_years[i]:
+                        i+=1
+                        list_g1.append(0)
+
+
+            else:
+                list_g1.append(0)
+                i+=1
+        i = 0
+        j = 0
+        list_g2 = []
+        g2_name =Genre.objects.get(id=g2).name
+        while i < len(list_years):
+            if j < len(g2_result) and g2_result[j]['year'] is not None :
+                if g2_result[j]['year'] == list_years[i]:
+                    list_g2.append(g2_result[j]['dcount'])
+                    j += 1
+                    i += 1
+                else:
+                    while g2_result[j]['year'] > list_years[i]:
+                        i += 1
+                        list_g2.append(0)
+            else:
+                list_g2.append(0)
+                i += 1
+        list_result = list()
+        for i in range(0,len(list_years)):
+            list_result.append({
+                'year': list_years[i],
+                g1_name: list_g1[i],
+                g2_name: list_g2[i]
+            })
+
+        return JsonResponse(list_result, safe=False)

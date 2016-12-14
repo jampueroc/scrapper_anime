@@ -48,6 +48,10 @@ urlpatterns = [
         name='json_genre_graph'
     ),
     url(
+        r'^json/versus_graph/$', views.VersusGraphView.as_view(),
+        name='json_versus_graph'
+    ),
+    url(
         r'^json/producer_graph/(?P<pk>\d+)/$', views.ProducerDataGraphView.as_view(),
         name='json_producer_graph'
     ),
