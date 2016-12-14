@@ -1,6 +1,6 @@
 var diameter = 960,
     format = d3.format(",d"),
-    color = d3.scale.category20c(); // aquí está la paleta 10, 20 , 20b 20c
+    color = d3.scale.category20(); // aquí está la paleta 10, 20 , 20b 20c
 
 var bubble = d3.layout.pack()
     .sort(function(a, b) { return a.value - b.value })// andrea juega con esto como te parezca más bonito, puedes cambiar el orden o comentarlo para quitarlo
