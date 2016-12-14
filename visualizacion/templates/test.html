@@ -275,6 +275,7 @@
             </div>
             <div class="col-sm-2 text-center">
                 <h1><b>V/S</b></h1>
+
             </div>
             <div class="col-sm-5 text-center">
                 <div class="col-xs-12">
@@ -291,6 +292,10 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-xs-12 center-block  bg-dark radio">
+                <label class="radio-inline"><input type="radio" name="optradio" id="bar">Bar</label>
+                <label class="radio-inline"><input type="radio" name="optradio" id="lines">Lines</label>
+            </div>
             <div class="col-xs-12">
                 <div id="versus_graph"></div>
             </div>
@@ -419,6 +424,7 @@
     $("#genres2").on("change",function () {
         update_versus();
     });
+    var versus_graph;
 
     function update_versus() {
         var g1 = $( "#genres1 option:selected" ).attr('id');
@@ -426,7 +432,7 @@
 
 
 
-        var versus_graph = c3.generate({
+        versus_graph = c3.generate({
         bindto:"#versus_graph",
         size: {
             height: 700
@@ -464,7 +470,6 @@
 
     };
 
-
     $("#producers").on("change", function () {
         var name = $(this).val();
         var id = $( "#producers option:selected" ).attr('id');
@@ -486,7 +491,7 @@
                 }
             }
         });
-                var producer_graph = c3.generate({
+                producer_graph = c3.generate({
         bindto:"#producer_graph",
         size: {
             height: 700
@@ -538,6 +543,13 @@
         $("#genres").val($(this).find("span:first").text()).trigger("change");
       $( "#ref_g" ).click();
     });
+    
+    $("#bar").click(function () {
+        versus_graph.transform('bar')
+    });
+    $("#lines").click(function () {
+        versus_graph.transform('line');
+    });
 
     $( document ).ready(function() {
         $("#genres").val("Hentai").trigger("change");
@@ -545,6 +557,12 @@
 {#        $("#genres1").val("Yaoi").trigger("change");#}
         $("#genres2").val("Yuri").trigger("change");
         $('#ref_top').click();
+        setTimeout(
+                function () {
+                     $('#lines').click();
+                }, 1000
+        );
+
 });
 
 </script>
