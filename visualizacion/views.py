@@ -175,8 +175,6 @@ class FinalVersionView(TemplateView):
             print "not using cache :("
             r = Anime.objects.all()
             context['list_anime'] = r
-            cache.set('list_anime', r)
-            print "saved cache :("
 
         return context
 
