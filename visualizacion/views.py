@@ -113,6 +113,7 @@ def great_producers(request):
             list_results.append(result)
     return JsonResponse(list_results, safe=False)
 
+
 def anual_genres_ranking(request):
     genres = Genre.objects.all()
     start_year = 1980
@@ -129,6 +130,7 @@ def anual_genres_ranking(request):
             list_results.append(result)
         year= year + generation_gap
     return JsonResponse( list_results, safe=False)
+
 
 def anual_genres_battle(request):
     genres = Genre.objects.all()
@@ -167,17 +169,25 @@ class FinalVersionView(TemplateView):
         context['ranking'] = { p['genres__name']: index+1 for index, p in enumerate(positions)}
         positions = Anime.objects.values('producers__name').annotate(dcount=Count('*')).order_by('-dcount')
         context['ranking_producers'] = { p['producers__name']: index+1 for index, p in enumerate(positions)}
-        in_cache = cache.get('list_anime')
-        if in_cache:
-            context['list_anime'] = in_cache
-            print "Using cache"
-        else:
-            print "not using cache :("
-            r = Anime.objects.all()
-            context['list_anime'] = r
-
         return context
 
+
+def anime_list(request):
+    in_cache = cache.get('data_anime')
+    if in_cache:
+        result = in_cache
+    else:
+        animes = Anime.objects.all()
+        result =list()
+        for a in animes:
+            result.append([str(a),
+                           a.get_genres_pretty(),
+                           a.get_producers_pretty(),
+                           a.aired,
+                           a.url
+                           ])
+        cache.set('data_anime', result)
+    return JsonResponse({'data':result},safe=False)
 
 class GenreDataView(DetailView):
     model = Genre
