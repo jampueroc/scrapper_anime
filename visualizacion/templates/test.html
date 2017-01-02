@@ -630,7 +630,7 @@
     $(document).ready(function(){
         $('#table').DataTable({
                  "order": [[ 2, "desc" ]],
-        "ajax": "{% url 'json_anime_list' %}",
+        "ajax": "{% static 'data/data_anime_list_2017_1_1.json' %}",
         "deferRender": true,
                     "columnDefs": [ {
             "targets": 4,
