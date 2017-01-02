@@ -1,3 +1,4 @@
+from django.core.cache import cache
 from django.db import models
 
 
@@ -22,9 +23,35 @@ class Anime(models.Model):
     def __unicode__(self):
         if self.name_english:
             return unicode(self.name_english)
+        if len(self.name_alternatives.all()) >0:
+            return unicode(self.name_alternatives.all()[0])
         if self.name_japanese:
             return unicode(self.name_japanese)
-        elif len(self.name_alternatives.all()) >0:
-            return unicode(self.name_alternatives.all()[0])
+
+        return "no title"
+
+    def get_genres_pretty(self):
+        id = self.id
+        result = ""
+        name = "g"+str(id)
+        in_cache = cache.get(name)
+        if in_cache:
+            result = in_cache
         else:
-            return "no title"
+            g = [str(g) for g in self.genres.all()]
+            result = ", ".join(g)
+            cache.set(name, result)
+        return result
+
+    def get_producers_pretty(self):
+        id = self.id
+        result = ""
+        name = "p" + str(id)
+        in_cache = cache.get(name)
+        if in_cache:
+            result = in_cache
+        else:
+            p = [str(p) for p in self.producers.all()]
+            result = ", ".join(p)
+            cache.set(name, result)
+        return result

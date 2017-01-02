@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 import os
+
+from django.views.decorators.cache import cache_page
 from django.views.static import serve as staticserve
 from . import views
 
@@ -71,7 +73,7 @@ urlpatterns = [
         name='try_d3'),
     url(r'^genre/(?P<pk>\d+)/$', views.GenreDetail.as_view(),
         name='genre'),
-    url(r'^final/$', views.FinalVersionView.as_view(),
+    url(r'^final/$', cache_page(60 * 60 * 12 * 365, key_prefix="final")(views.FinalVersionView.as_view()),
         name='final'),
     url(r'^$', views.IndexView.as_view(),
         name='index'),

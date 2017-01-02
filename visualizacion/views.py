@@ -4,6 +4,7 @@ from collections import OrderedDict
 
 import datetime
 
+from django.core.cache import cache
 from django.db.models.aggregates import Count
 from django.http.response import JsonResponse
 from django.views.decorators.cache import cache_page
@@ -166,11 +167,23 @@ class FinalVersionView(TemplateView):
         context['ranking'] = { p['genres__name']: index+1 for index, p in enumerate(positions)}
         positions = Anime.objects.values('producers__name').annotate(dcount=Count('*')).order_by('-dcount')
         context['ranking_producers'] = { p['producers__name']: index+1 for index, p in enumerate(positions)}
+        in_cache = cache.get('list_anime')
+        if in_cache:
+            context['list_anime'] = in_cache
+            print "Using cache"
+        else:
+            print "not using cache :("
+            r = Anime.objects.all()
+            context['list_anime'] = r
+            cache.set('list_anime', r)
+            print "saved cache :("
+
         return context
 
 
 class GenreDataView(DetailView):
     model = Genre
+
     def get(self, request, *args, **kwargs):
         result = Anime.objects.filter(
             genres=self.get_object()

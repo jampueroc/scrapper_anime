@@ -66,6 +66,15 @@
         }
 
     </style>
+
+
+<!-- jQuery -->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jq-2.2.3/dt-1.10.12/af-2.1.2/datatables.min.css"/>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/jq-2.2.3/dt-1.10.12/af-2.1.2/datatables.min.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -88,13 +97,16 @@
                     <a class="page-scroll" href="#genre" id="ref_b">Producciones</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#data_genre" id="ref_g">Generos</a>
+                    <a class="page-scroll" href="#data_genre" id="ref_g">Géneros</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#producer" id="ref_p">Productoras</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#versus" id="ref_vs">Comparaciones de géneros</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#animes" id="ref_anime">Listado de animé</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#contact">Contacto</a>
@@ -114,6 +126,8 @@
             <hr>
             <p>Proyecto realizado por Andrea Benavides y Jorge Ampuero, encuentra el código en <a
                     href="https://github.com/jampueroc/scrapper_anime">GitHub</a></p>
+            <hr>
+            <p>Última actualización de datos: 1 de Enero de 2017</p>
             <a href="#genre" class="btn btn-primary btn-xl page-scroll">Ver visualizaciones</a>
         </div>
     </div>
@@ -123,7 +137,7 @@
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <h2 class="">Producciones por genero de animé</h2>
+                <h2 class="">Producciones por género de animé</h2>
                 <hr>
                 <div class="col-sm-2">
                     <p class="alert alert-warning">Al pasar por la burbuja, saldrá el nombre completo y el número de producciones.</p>
@@ -183,7 +197,7 @@
                         5. <span class="producer_ranking"></span>, <span class="producer_count"></span>
                     </a></h3>
                     <hr>
-                    <p class="alert alert-warning">Segundo gráfico permite seleccionar areas para hacer zoom</p>
+                    <p class="alert alert-warning">Segundo gráfico permite seleccionar áreas para hacer zoom</p>
                 </div>
                 <div class="col-sm-8">
                     <!-- columna de la derecha-->
@@ -239,7 +253,7 @@
                 5. <span class="genre_ranking"></span>, <span class="genre_count"></span>
             </a></h3>
             <hr>
-                    <p  class="alert alert-warning">Segundo gráfico permite seleccionar areas para hacer zoom</p>
+                    <p  class="alert alert-warning">Segundo gráfico permite seleccionar áreas para hacer zoom</p>
         </div>
         <div class="col-sm-8">
             <div id="producer_graph"></div>
@@ -303,12 +317,51 @@
     </div>
 </section>
 
+<section id="animes">
+    <div class="container">
+        <!--panel 4 (Versus)-->
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h2 class="section-heading">Listado de Animé</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <table id="table" class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Género(s)</th>
+                        <th>Productora(s)</th>
+                        <th>Año</th>
+                        <th>Link</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for a in list_anime %}
+                        <tr>
+                            <td>{{ a }}</td>
+                            <td>{{ a.get_genres_pretty }}</td>
+                            <td>{{ a.get_producers_pretty }}</td>
+                            <td>{{ a.aired }}</td>
+                            <td><a href="{{ a.url }}">Link</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</section>
 
 <section id="contact">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <h2 class="section-heading">Te interesó nuestro proyecto? Contáctanos</h2>
+                <h2 class="section-heading">¿Te interesó nuestro proyecto?, contáctanos</h2>
                 <hr class="primary">
                 <p></p>
             </div>
@@ -330,9 +383,6 @@
         </div>
     </div>
 </div>
-<!-- jQuery -->
-<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-
 <!-- Bootstrap Core JavaScript -->
 <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
 
@@ -348,6 +398,7 @@
 <script type="application/javascript" src="{% static 'js/select2.min.js' %}"></script>
 <script type="text/javascript">
     $('select').select2({
+         "order": [[ 0, "asc" ]],
         language: "es"
     });
 
@@ -388,7 +439,12 @@
                     keys: {
             x: 'year',
             value: ['producciones']
-        }
+        },
+         onclick: function (d, i) {
+             var name = $("#genres").val();
+             var year = d.x;
+             update_table(name+" "+ year)
+         }
         },
         keys: {
             x: 'year',
@@ -468,7 +524,14 @@
     });
         $( "#ref_vs" ).click();
 
-    };
+    }
+
+    function update_table(value){
+        var input = $('.dataTables_filter input');
+        input.val(value);
+        $("#table").DataTable().search(input.val(),false,true).draw();
+        $("#ref_anime").click();
+    }
 
     $("#producers").on("change", function () {
         var name = $(this).val();
@@ -491,7 +554,8 @@
                 }
             }
         });
-                producer_graph = c3.generate({
+
+        producer_graph = c3.generate({
         bindto:"#producer_graph",
         size: {
             height: 700
@@ -502,6 +566,11 @@
                     keys: {
             x: 'year',
             value: ['producciones']
+        },
+         onclick: function (d, i) {
+             var name = $("#producers").val();
+             var year = d.x;
+             update_table(name+" "+ year);
         }
         },
         keys: {
@@ -566,6 +635,19 @@
 });
 
 </script>
+
+
+
+    <script type="application/javascript">
+    $(document).ready(function(){
+        $('#table').DataTable({
+                 "order": [[ 2, "desc" ]],
+                 "language": {
+                     "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        }});
+    });
+    </script>
+
 </body>
 
 </html>

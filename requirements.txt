@@ -36,3 +36,6 @@ traitlets==4.3.0
 unicodecsv==0.14.1
 wcwidth==0.1.7
 whitenoise==3.2.2
+pylibmc==1.5.1
+django-pylibmc==0.6.1
+django-heroku-memcacheify==1.0.0

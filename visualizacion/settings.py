@@ -94,12 +94,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': 'unix:/tmp/memcached.sock',
-    }
-}
+from memcacheify import memcacheify
+
+MEMCACHEIFY_USE_LOCAL=True
+CACHES = memcacheify()
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/

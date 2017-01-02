@@ -14,5 +14,8 @@ from whitenoise.django import DjangoWhiteNoise
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "visualizacion.settings")
 
+from django.core.cache.backends.memcached import BaseMemcachedCache
+BaseMemcachedCache.close = lambda self, **kwargs: None
+
 application = get_wsgi_application()
 application = DjangoWhiteNoise(application)

@@ -4,6 +4,6 @@ redis-3.2.3
 .idea
 db.*
 visualizacion/static/bower_components
-celery/
+celery/logs/*.log
 visualizacion/staticfiles
 visualizacion/settings_secret.py

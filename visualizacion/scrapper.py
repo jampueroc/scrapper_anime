@@ -89,7 +89,7 @@ def create_anime(anime_url):
     try:
         anime = Anime.objects.get(url=anime_url)
         print "Updating Anime for url: " + anime_url
-        set_atributes(anime, data_anime)
+        set_atributes(anime, data_anime, True)
     except Anime.DoesNotExist:
         anime = Anime()
         anime.url = anime_url
@@ -101,7 +101,6 @@ def create_anime(anime_url):
         create_anime.retry(countdown=2, exc=e, max_retries=5)
 
 
-
 def set_atributes(anime, data_anime, edit_basic_info=False):
     atributes = data_anime.findAll('span', "dark_text")
     anime.save()
@@ -111,6 +110,7 @@ def set_atributes(anime, data_anime, edit_basic_info=False):
         atribute_text = atribute.text
         atribute_value = atribute.parent.text.split(':')[1]
         skip = False
+
         for element_to_avoid in blacklist:
             if element_to_avoid in atribute_value:
                 skip = True
