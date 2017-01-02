@@ -629,7 +629,7 @@
     <script type="application/javascript">
     $(document).ready(function(){
         $('#table').DataTable({
-                 "order": [[ 2, "desc" ]],
+                 "order": [[ 0, "asc" ]],
         "ajax": "{% static 'data/data_anime_list_2017_1_1.json' %}", //use {% url 'json_anime_list' %} for real sync data, heroku don't works with this :(
         "deferRender": true,
                     "columnDefs": [ {
